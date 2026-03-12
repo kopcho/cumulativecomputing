@@ -1,0 +1,205 @@
+/* Cumulative Computing — Custom Theme */
+
+/* Force dark mode always */
+:root[data-theme='light'],
+:root {
+  color-scheme: dark;
+}
+
+/* ─── Color palette ─────────────────────────────────────────────────── */
+:root {
+  --sl-color-accent-low:    #1a1f3a;
+  --sl-color-accent:        #6b87f8; /* lightened from #4f6ef7 for WCAG AA: ~5.3:1 on dark bg */
+  --sl-color-accent-high:   #a0b0ff;
+  --sl-color-white:         #f0f2ff;
+  --sl-color-gray-1:        #c4cae8;
+  --sl-color-gray-2:        #8891bb;
+  --sl-color-gray-3:        #4a527a;
+  --sl-color-gray-4:        #2b3158;
+  --sl-color-gray-5:        #1a1f3a;
+  --sl-color-gray-6:        #111428;
+  --sl-color-black:         #0a0d1a;
+
+  --sl-color-bg:            #0d1024;
+  --sl-color-bg-nav:        #0a0d1a;
+  --sl-color-bg-sidebar:    #0f1228;
+  --sl-color-hairline-light: #1e2448;
+  --sl-color-hairline-shade: #161a38;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────── */
+:root {
+  --sl-font: 'Inter', system-ui, sans-serif;
+  --sl-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --sl-text-body: 1rem;
+  --sl-line-height: 1.75;
+}
+
+/* ─── Site header ────────────────────────────────────────────────────── */
+header.header {
+  border-bottom: 1px solid var(--sl-color-hairline-light);
+  background: var(--sl-color-bg-nav);
+  backdrop-filter: blur(12px);
+}
+
+/* ─── Sidebar ────────────────────────────────────────────────────────── */
+.sidebar-pane {
+  border-right: 1px solid var(--sl-color-hairline-light);
+}
+
+nav.sidebar a[aria-current='page'] {
+  background: linear-gradient(90deg, rgba(107,135,248,0.18) 0%, transparent 100%);
+  border-left: 2px solid var(--sl-color-accent);
+  color: var(--sl-color-accent-high);
+  font-weight: 600;
+}
+
+/* ─── Hero section ───────────────────────────────────────────────────── */
+.hero {
+  padding: 4rem 1.5rem 3rem;
+}
+
+.hero > .sl-flex {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #a0b0ff 0%, #4f6ef7 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero .tagline {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: var(--sl-color-gray-2);
+  max-width: 52ch;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Hero action buttons */
+.hero .action a {
+  border-radius: 6px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+.hero .action a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 24px rgba(107, 135, 248, 0.35);
+}
+
+/* Primary button */
+.hero a.primary {
+  background: linear-gradient(135deg, #3355ee, #7c3aed); /* #3355ee gives ~5.7:1 white text ratio */
+  border: none;
+  color: #fff !important;
+}
+
+/* Minimal button */
+.hero a.minimal {
+  border: 1px solid var(--sl-color-gray-4);
+  color: var(--sl-color-gray-1) !important;
+}
+
+.hero a.minimal:hover {
+  border-color: var(--sl-color-accent);
+  color: var(--sl-color-accent-high) !important;
+}
+
+/* ─── Cards ──────────────────────────────────────────────────────────── */
+.card {
+  background: #0f1228;
+  border: 1px solid var(--sl-color-hairline-light);
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  border-color: var(--sl-color-accent);
+  box-shadow: 0 4px 32px rgba(107, 135, 248, 0.12);
+}
+
+.card .sl-flex svg {
+  color: var(--sl-color-accent);
+}
+
+/* ─── Content prose ──────────────────────────────────────────────────── */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3 {
+  letter-spacing: -0.02em;
+}
+
+.sl-markdown-content h2 {
+  border-bottom: 1px solid var(--sl-color-hairline-light);
+  padding-bottom: 0.4em;
+  margin-top: 2.5em;
+}
+
+.sl-markdown-content blockquote {
+  border-left: 3px solid var(--sl-color-accent);
+  background: rgba(107, 135, 248, 0.06);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.25rem;
+  color: var(--sl-color-gray-1);
+  font-style: normal;
+}
+
+.sl-markdown-content code {
+  background: rgba(107, 135, 248, 0.1);
+  border: 1px solid var(--sl-color-hairline-light);
+  border-radius: 4px;
+  color: var(--sl-color-accent-high);
+  font-size: 0.88em;
+}
+
+.sl-markdown-content pre {
+  background: #090c1c !important;
+  border: 1px solid var(--sl-color-hairline-light);
+  border-radius: 8px;
+}
+
+/* ─── Section dividers ───────────────────────────────────────────────── */
+.sl-markdown-content hr {
+  border-color: var(--sl-color-hairline-light);
+  margin: 2.5em 0;
+}
+
+/* ─── Table of contents ──────────────────────────────────────────────── */
+starlight-toc a {
+  color: var(--sl-color-gray-2);
+  font-size: 0.85rem;
+}
+
+starlight-toc a:hover,
+starlight-toc a[aria-current='true'] {
+  color: var(--sl-color-accent-high);
+}
+
+/* ─── Page title ─────────────────────────────────────────────────────── */
+.page-title h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* ─── Subtle glow on focus ───────────────────────────────────────────── */
+a:focus-visible {
+  outline: 2px solid var(--sl-color-accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ─── Right sidebar (TOC) ────────────────────────────────────────────── */
+.right-sidebar {
+  border-left: 1px solid var(--sl-color-hairline-light);
+}

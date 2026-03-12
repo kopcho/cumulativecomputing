@@ -1,0 +1,42 @@
+---
+title: Cumulative Computing
+description: A computational paradigm in which systems accumulate work over time by preserving artifacts that represent completed computation.
+template: splash
+hero:
+  tagline: Traditional infrastructure preserves data. Cumulative Computing infrastructure preserves work.
+  actions:
+    - text: Read the Manifesto
+      link: /cumulative-computing/
+      icon: right-arrow
+    - text: AAA Framework
+      link: /framework/01/
+      icon: open-book
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## The Core Idea
+
+Computational systems produce artifacts representing completed work. When those artifacts persist, the work persists. When they disappear, the work must be performed again.
+
+Cumulative Computing is the paradigm in which systems are built to preserve and accumulate that work — rather than repeatedly destroying and recreating it.
+
+<CardGrid stagger>
+	<Card title="The Manifesto" icon="document">
+		A concise introduction to the Cumulative Computing paradigm and why it matters.
+		[Read Cumulative Computing →](/cumulative-computing/)
+	</Card>
+	<Card title="Artifact Graphs" icon="puzzle">
+		Computational results form dependency graphs that represent the structure of work.
+		[Explore the framework →](/framework/03/)
+	</Card>
+	<Card title="Computational Work Conservation" icon="star">
+		Completed computational work persists only through the artifacts produced by that work.
+		[Read the principle →](/framework/07/)
+	</Card>
+	<Card title="AAA Framework" icon="list-format">
+		Seven technical notes developing the Agent Artifact Availability framework from first principles.
+		[Start with Paper 01 →](/framework/01/)
+	</Card>
+</CardGrid>
