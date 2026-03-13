@@ -20,11 +20,6 @@ This repository contains the Astro Starlight site for [cumulativecomputing.org](
 
 The framework papers are maintained in the [kopcho/AAA](https://github.com/kopcho/AAA) repository.
 
-## Built With
-
-- [Astro](https://astro.build) + [Starlight](https://starlight.astro.build)
-- Deployed on [Vercel](https://vercel.com)
-
 ## Local Development
 
 ```bash
