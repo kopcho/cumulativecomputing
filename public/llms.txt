@@ -1,4 +1,9 @@
 # Cumulative Computing
+> Author: Rich Kopcho (https://github.com/kopcho)
+> Source: https://github.com/kopcho/AAA
+> License: CC BY 4.0
+
+# Cumulative Computing
 
 > A computational paradigm in which systems accumulate work over time by preserving artifacts that represent completed computation.
 
@@ -14,19 +19,19 @@ The framework is developed through two primary works:
 
 The Agent Artifact Availability (AAA) framework defines the reliability property required to support Cumulative Computing systems. Seven technical notes develop the framework from first principles.
 
-- [01 — Agent Artifact Availability](https://cumulativecomputing.org/framework/01/): Introduces the AAA reliability property: artifacts must remain retrievable, verifiable, reusable, and persistent across agents, workflows, and time.
+- [01 — Agent Artifact Availability](https://cumulativecomputing.org/framework/01-agent-artifact-availability/): Introduces the AAA reliability property: artifacts must remain retrievable, verifiable, reusable, and persistent across agents, workflows, and time.
 
-- [02 — Artifacts as Units of Work](https://cumulativecomputing.org/framework/02/): Establishes that artifacts are not merely data — they are durable representations of completed computational work.
+- [02 — Artifacts as Units of Work](https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/): Establishes that artifacts are not merely data — they are durable representations of completed computational work.
 
-- [03 — Artifact Graphs](https://cumulativecomputing.org/framework/03/): Artifacts depend on prior artifacts, forming directed graphs that encode the structure and history of computational work.
+- [03 — Artifact Graphs](https://cumulativecomputing.org/framework/03-artifact-graphs/): Artifacts depend on prior artifacts, forming directed graphs that encode the structure and history of computational work.
 
-- [04 — Why Storage Systems Fail](https://cumulativecomputing.org/framework/04/): Analyzes why traditional storage systems — filesystems, databases, object storage — fail to preserve artifact graphs and therefore lose computational work.
+- [04 — Why Storage Systems Fail](https://cumulativecomputing.org/framework/04-why-storage-systems-fail/): Analyzes why traditional storage systems — filesystems, databases, object storage — fail to preserve artifact graphs and therefore lose computational work.
 
-- [05 — Artifact Availability Layer](https://cumulativecomputing.org/framework/05/): Proposes a new infrastructure layer between compute and storage that manages artifact identity, discovery, graph preservation, and availability.
+- [05 — Artifact Availability Layer](https://cumulativecomputing.org/framework/05-artifact-availability-layer/): Proposes a new infrastructure layer between compute and storage that manages artifact identity, discovery, graph preservation, and availability.
 
-- [06 — Deterministic Artifact Identity](https://cumulativecomputing.org/framework/06/): Derives that stable artifact identity must be computed deterministically from the computation and inputs that produced the artifact.
+- [06 — Deterministic Artifact Identity](https://cumulativecomputing.org/framework/06-deterministic-artifact-identity/): Derives that stable artifact identity must be computed deterministically from the computation and inputs that produced the artifact.
 
-- [07 — Computational Work Conservation](https://cumulativecomputing.org/framework/07/): States the culminating principle: completed computational work persists only through the artifacts produced by that work. Systems that preserve artifact availability accumulate work over time.
+- [07 — Computational Work Conservation](https://cumulativecomputing.org/framework/07-computational-work-conservation/): States the culminating principle: completed computational work persists only through the artifacts produced by that work. Systems that preserve artifact availability accumulate work over time.
 
 ## Key Concepts
 

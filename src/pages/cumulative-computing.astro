@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { marked } from 'marked';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+// Try GitHub first, fall back to local file
+let rawContent = '';
+
+try {
+  const res = await fetch('https://raw.githubusercontent.com/kopcho/AAA/main/cumulative_computing.md');
+  if (res.ok) {
+    rawContent = await res.text();
+  }
+} catch (e) {
+  // Network failure — use local
+}
+
+if (!rawContent) {
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+  const localPath = path.join(__dirname, '../content/docs/cumulative-computing.md');
+  if (fs.existsSync(localPath)) {
+    rawContent = fs.readFileSync(localPath, 'utf-8');
+  }
+}
+
+// Strip YAML frontmatter
+if (rawContent.trimStart().startsWith('---')) {
+  const start = rawContent.indexOf('---');
+  const end = rawContent.indexOf('---', start + 3);
+  if (end !== -1) rawContent = rawContent.slice(end + 3).trim();
+}
+
+const html = marked(rawContent);
+
+const jsonld = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "name": "Cumulative Computing",
+  "description": "A computational paradigm in which systems accumulate work over time by preserving artifacts that represent completed computation.",
+  "author": {
+    "@type": "Person",
+    "name": "Rich Kopcho",
+    "url": "https://github.com/kopcho"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Cumulative Computing",
+    "url": "https://cumulativecomputing.org"
+  },
+  "datePublished": "2026-03",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "url": "https://cumulativecomputing.org/cumulative-computing/"
+});
+---
+<BaseLayout
+  title="Cumulative Computing"
+  description="A computational paradigm in which systems accumulate work over time by preserving artifacts that represent completed computation."
+  jsonld={jsonld}
+>
+  <h1>Cumulative Computing</h1>
+  <div class="byline">
+    <span>Rich Kopcho</span>
+    <span>March 2026</span>
+    <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">View on GitHub ↗</a>
+    <span>CC BY 4.0</span>
+  </div>
+  <div class="manifesto-content" set:html={html} />
+  <div class="paper-nav">
+    <a href="/">← Home</a>
+    <a href="/framework/" class="next">AAA Framework →</a>
+  </div>
+</BaseLayout>

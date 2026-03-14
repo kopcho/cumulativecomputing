@@ -1,0 +1,11 @@
+{
+  "site": "https://cumulativecomputing.org",
+  "author": "Rich Kopcho",
+  "author_url": "https://github.com/kopcho",
+  "source": "https://github.com/kopcho/AAA",
+  "license": "CC BY 4.0",
+  "llms_txt": "https://cumulativecomputing.org/llms.txt",
+  "llms_full_txt": "https://cumulativecomputing.org/llms-full.txt",
+  "cite": "https://cumulativecomputing.org/cite/",
+  "framework": "https://cumulativecomputing.org/framework/"
+}

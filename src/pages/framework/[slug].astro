@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { marked } from 'marked';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+// Paper registry — GitHub uses underscore filenames
+const PAPERS = [
+  { slug: '01-agent-artifact-availability', num: '01', githubFile: '01_agent_artifact_availability.md', title: 'Agent Artifact Availability (AAA)', description: 'Introduces Agent Artifact Availability as the reliability property governing the preservation of computational artifacts across agents, workflows, and time.' },
+  { slug: '02-artifacts-as-units-of-work', num: '02', githubFile: '02_artifacts_as_units_of_computational_work.md', title: 'Artifacts as Units of Computational Work', description: 'Establishes that computational artifacts are first-class objects representing completed computational work.' },
+  { slug: '03-artifact-graphs', num: '03', githubFile: '03_artifact_graphs.md', title: 'Artifact Graphs and the Preservation of Computational Work', description: 'Introduces artifact graphs as directed graphs encoding the structure of computational work.' },
+  { slug: '04-why-storage-systems-fail', num: '04', githubFile: '04_why_storage_systems_lose_computational_work.md', title: 'Why Storage Systems Lose Computational Work', description: 'Evaluates traditional storage models against artifact graph requirements and demonstrates why none preserve computational work.' },
+  { slug: '05-artifact-availability-layer', num: '05', githubFile: '05_artifact_availability_layer.md', title: 'The Artifact Availability Layer', description: 'Introduces the Artifact Availability Layer as the infrastructure required to preserve computational work.' },
+  { slug: '06-deterministic-artifact-identity', num: '06', githubFile: '06_deterministic_artifact_identity.md', title: 'Deterministic Artifact Identity', description: 'Defines deterministic artifact identity as the mechanism that makes artifact graphs verifiable.' },
+  { slug: '07-computational-work-conservation', num: '07', githubFile: '07_computational_work_conservation.md', title: 'Computational Work Conservation', description: 'Establishes the principle of Computational Work Conservation and reveals Cumulative Computing as the paradigm.' },
+];
+
+function stripFrontmatter(content: string): string {
+  if (content.trimStart().startsWith('---')) {
+    const start = content.indexOf('---');
+    const end = content.indexOf('---', start + 3);
+    if (end !== -1) return content.slice(end + 3).trim();
+  }
+  return content.trim();
+}
+
+export async function getStaticPaths() {
+  const PAPERS = [
+    { slug: '01-agent-artifact-availability', num: '01', githubFile: '01_agent_artifact_availability.md', title: 'Agent Artifact Availability (AAA)', description: 'Introduces Agent Artifact Availability as the reliability property governing the preservation of computational artifacts across agents, workflows, and time.' },
+    { slug: '02-artifacts-as-units-of-work', num: '02', githubFile: '02_artifacts_as_units_of_computational_work.md', title: 'Artifacts as Units of Computational Work', description: 'Establishes that computational artifacts are first-class objects representing completed computational work.' },
+    { slug: '03-artifact-graphs', num: '03', githubFile: '03_artifact_graphs.md', title: 'Artifact Graphs and the Preservation of Computational Work', description: 'Introduces artifact graphs as directed graphs encoding the structure of computational work.' },
+    { slug: '04-why-storage-systems-fail', num: '04', githubFile: '04_why_storage_systems_lose_computational_work.md', title: 'Why Storage Systems Lose Computational Work', description: 'Evaluates traditional storage models against artifact graph requirements and demonstrates why none preserve computational work.' },
+    { slug: '05-artifact-availability-layer', num: '05', githubFile: '05_artifact_availability_layer.md', title: 'The Artifact Availability Layer', description: 'Introduces the Artifact Availability Layer as the infrastructure required to preserve computational work.' },
+    { slug: '06-deterministic-artifact-identity', num: '06', githubFile: '06_deterministic_artifact_identity.md', title: 'Deterministic Artifact Identity', description: 'Defines deterministic artifact identity as the mechanism that makes artifact graphs verifiable.' },
+    { slug: '07-computational-work-conservation', num: '07', githubFile: '07_computational_work_conservation.md', title: 'Computational Work Conservation', description: 'Establishes the principle of Computational Work Conservation and reveals Cumulative Computing as the paradigm.' },
+  ];
+
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+  const results = await Promise.all(PAPERS.map(async (paper) => {
+    let rawContent = '';
+
+    // Try GitHub first
+    try {
+      const githubUrl = `https://raw.githubusercontent.com/kopcho/AAA/main/${paper.githubFile}`;
+      const res = await fetch(githubUrl);
+      if (res.ok) {
+        rawContent = await res.text();
+      }
+    } catch (e) {
+      // Network failure — fall through to local
+    }
+
+    // Local fallback if GitHub fetch failed or returned empty
+    if (!rawContent) {
+      const localPath = path.join(__dirname, '../../content/docs/framework/', `${paper.num}.md`);
+      if (fs.existsSync(localPath)) {
+        rawContent = fs.readFileSync(localPath, 'utf-8');
+      }
+    }
+
+    // Strip YAML frontmatter
+    if (rawContent.trimStart().startsWith('---')) {
+      const start = rawContent.indexOf('---');
+      const end = rawContent.indexOf('---', start + 3);
+      if (end !== -1) rawContent = rawContent.slice(end + 3).trim();
+    }
+
+    return {
+      params: { slug: paper.slug },
+      props: { paper, rawContent, papers: PAPERS }
+    };
+  }));
+
+  return results;
+}
+
+const { paper, rawContent, papers } = Astro.props;
+const idx = papers.findIndex((p: typeof paper) => p.slug === paper.slug);
+const prev = idx > 0 ? papers[idx - 1] : null;
+const next = idx < papers.length - 1 ? papers[idx + 1] : null;
+
+const html = marked(rawContent);
+
+const bibtexKey = `kopcho2026aaa${paper.num}`;
+const githubFileBase = paper.githubFile.replace('.md', '');
+
+const jsonld = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "name": paper.title,
+    "headline": paper.title,
+    "description": paper.description,
+    "abstract": paper.description,
+    "author": {
+      "@type": "Person",
+      "name": "Rich Kopcho",
+      "url": "https://github.com/kopcho"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Cumulative Computing",
+      "url": "https://cumulativecomputing.org"
+    },
+    "datePublished": "2026-03-01",
+    "dateModified": "2026-03-01",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "inLanguage": "en",
+    "keywords": `cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, ${paper.title}`,
+    "url": `https://cumulativecomputing.org/framework/${paper.slug}/`,
+    "sameAs": [
+      `https://github.com/kopcho/AAA/blob/main/${paper.githubFile}`,
+      `https://cumulativecomputing.org/framework/${paper.slug}/`
+    ],
+    "isPartOf": {
+      "@type": "CreativeWorkSeries",
+      "name": "Agent Artifact Availability (AAA) Framework",
+      "url": "https://github.com/kopcho/AAA"
+    },
+    "position": parseInt(paper.num)
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Rich Kopcho",
+    "url": "https://github.com/kopcho",
+    "sameAs": ["https://github.com/kopcho", "https://cumulativecomputing.org"]
+  }
+]);
+---
+<BaseLayout
+  title={paper.title}
+  description={paper.description}
+  jsonld={jsonld}
+  isCitation={true}
+  keywords={`cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, ${paper.title}`}
+>
+  <h1>{paper.title}</h1>
+  <div class="byline">
+    <span>Rich Kopcho</span>
+    <span>March 2026</span>
+    <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">View on GitHub ↗</a>
+    <span>CC BY 4.0</span>
+  </div>
+  <div class="paper-content" set:html={html} />
+  <div class="paper-nav">
+    {prev && <a href={`/framework/${prev.slug}/`}>← {prev.title}</a>}
+    {next && <a href={`/framework/${next.slug}/`} class="next">{next.title} →</a>}
+  </div>
+
+  <div class="citation-block">
+    <h2>Cite This Work</h2>
+    <p class="citation-apa">Kopcho, R. (2026). <em>{paper.title}</em>. Agent Artifact Availability (AAA) Framework, Technical Note {paper.num}. Cumulative Computing. <a href={`https://cumulativecomputing.org/framework/${paper.slug}/`}>https://cumulativecomputing.org/framework/{paper.slug}/</a></p>
+    <details>
+      <summary>BibTeX</summary>
+      <pre><code>{`@techreport{${bibtexKey},
+  author    = {Kopcho, Rich},
+  title     = {${paper.title}},
+  series    = {Agent Artifact Availability (AAA) Framework},
+  type      = {Technical Note},
+  number    = {${paper.num}},
+  year      = {2026},
+  month     = {march},
+  url       = {https://cumulativecomputing.org/framework/${paper.slug}/},
+  note      = {Source: https://github.com/kopcho/AAA},
+  license   = {CC BY 4.0}
+}`}</code></pre>
+    </details>
+    <p class="citation-more"><a href="/cite/">All citation formats →</a></p>
+  </div>
+
+<style>
+  .citation-block {
+    margin-top: 4rem;
+    padding: 1.5rem;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+  }
+  .citation-block h2 {
+    font-size: 1rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .citation-apa {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .citation-block details {
+    margin: 1rem 0;
+  }
+  .citation-block summary {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    cursor: pointer;
+    margin-bottom: 0.75rem;
+  }
+  .citation-block summary:hover { color: var(--accent-high); }
+  .citation-block pre {
+    margin: 0;
+    font-size: 0.78rem;
+  }
+  .citation-more {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    margin: 0.75rem 0 0;
+  }
+</style>
+</BaseLayout>

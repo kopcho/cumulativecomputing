@@ -13,7 +13,7 @@ Cumulative Computing preserves work.
 
 ## About
 
-This repository contains the Astro Starlight site for [cumulativecomputing.org](https://cumulativecomputing.org), including:
+This repository contains the site for [cumulativecomputing.org](https://cumulativecomputing.org), including:
 
 - The Cumulative Computing manifesto
 - All seven AAA framework papers (01–07)

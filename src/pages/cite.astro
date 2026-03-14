@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const PAPERS = [
+  { slug: '01-agent-artifact-availability', num: '01', title: 'Agent Artifact Availability (AAA)', key: 'kopcho2026aaa01' },
+  { slug: '02-artifacts-as-units-of-work', num: '02', title: 'Artifacts as Units of Computational Work', key: 'kopcho2026aaa02' },
+  { slug: '03-artifact-graphs', num: '03', title: 'Artifact Graphs and the Preservation of Computational Work', key: 'kopcho2026aaa03' },
+  { slug: '04-why-storage-systems-fail', num: '04', title: 'Why Storage Systems Lose Computational Work', key: 'kopcho2026aaa04' },
+  { slug: '05-artifact-availability-layer', num: '05', title: 'The Artifact Availability Layer', key: 'kopcho2026aaa05' },
+  { slug: '06-deterministic-artifact-identity', num: '06', title: 'Deterministic Artifact Identity', key: 'kopcho2026aaa06' },
+  { slug: '07-computational-work-conservation', num: '07', title: 'Computational Work Conservation', key: 'kopcho2026aaa07' },
+];
+
+const seriesBibtex = `@techreport{kopcho2026aaa,
+  author    = {Kopcho, Rich},
+  title     = {Agent Artifact Availability (AAA) Framework},
+  type      = {Technical Note Series},
+  year      = {2026},
+  month     = {march},
+  url       = {https://cumulativecomputing.org/framework/},
+  note      = {Seven-part technical note series. Source: https://github.com/kopcho/AAA},
+  license   = {CC BY 4.0}
+}`;
+
+const jsonld = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CreativeWorkSeries",
+  "name": "Agent Artifact Availability (AAA) Framework",
+  "author": { "@type": "Person", "name": "Rich Kopcho", "url": "https://github.com/kopcho" },
+  "url": "https://cumulativecomputing.org/framework/",
+  "sameAs": ["https://github.com/kopcho/AAA"],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "datePublished": "2026-03"
+});
+---
+<BaseLayout
+  title="Cite — Cumulative Computing"
+  description="Citation formats for the Cumulative Computing paradigm and AAA Framework by Rich Kopcho. BibTeX, APA, and plain text."
+  jsonld={jsonld}
+  keywords="cumulative computing citation, AAA framework citation, Rich Kopcho, BibTeX"
+>
+  <style>
+    .cite-intro { margin-bottom: 2.5rem; }
+    .cite-section { margin: 2.5rem 0; }
+    .cite-section h2 { font-size: 1.3rem; margin-bottom: 1rem; }
+    .cite-section h3 {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 1.5rem 0 0.5rem;
+    }
+    pre {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      white-space: pre;
+    }
+    .apa-block {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin: 0.5rem 0;
+    }
+    .paper-cite { margin: 2rem 0; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+    .paper-cite:last-child { border-bottom: none; }
+    .paper-cite h3 { font-family: var(--font-body); font-size: 1rem; color: white; text-transform: none; letter-spacing: 0; margin: 0 0 1rem; }
+    .paper-cite a { font-family: var(--font-mono); font-size: 0.78rem; }
+    details summary { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); cursor: pointer; margin: 0.75rem 0 0.5rem; }
+    details summary:hover { color: var(--accent-high); }
+    .plain-text { font-family: var(--font-mono); font-size: 0.82rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.25rem; line-height: 1.7; }
+  </style>
+
+  <h1>Cite This Work</h1>
+  <div class="cite-intro">
+    <p>Citation formats for the Cumulative Computing paradigm and the Agent Artifact Availability (AAA) Framework by Rich Kopcho.</p>
+    <p>All works are published under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Attribution required.</p>
+  </div>
+
+  <div class="cite-section">
+    <h2>Cite the Full Series</h2>
+    <h3>APA</h3>
+    <div class="apa-block">Kopcho, R. (2026). <em>Agent Artifact Availability (AAA) Framework</em> [Technical note series]. Cumulative Computing. https://cumulativecomputing.org/framework/</div>
+    <h3>BibTeX</h3>
+    <pre>{seriesBibtex}</pre>
+    <h3>Plain text</h3>
+    <div class="plain-text">Rich Kopcho. "Agent Artifact Availability (AAA) Framework." Technical Note Series. Cumulative Computing, March 2026. https://cumulativecomputing.org/framework/ — Source: https://github.com/kopcho/AAA — CC BY 4.0</div>
+  </div>
+
+  <div class="cite-section">
+    <h2>Cite Individual Papers</h2>
+    {PAPERS.map(p => (
+      <div class="paper-cite">
+        <h3>{p.num}. <a href={`/framework/${p.slug}/`}>{p.title}</a></h3>
+        <div class="apa-block">Kopcho, R. (2026). <em>{p.title}</em>. Agent Artifact Availability (AAA) Framework, Technical Note {p.num}. Cumulative Computing. https://cumulativecomputing.org/framework/{p.slug}/</div>
+        <details>
+          <summary>BibTeX</summary>
+          <pre>{`@techreport{${p.key},
+  author    = {Kopcho, Rich},
+  title     = {${p.title}},
+  series    = {Agent Artifact Availability (AAA) Framework},
+  type      = {Technical Note},
+  number    = {${p.num}},
+  year      = {2026},
+  month     = {march},
+  url       = {https://cumulativecomputing.org/framework/${p.slug}/},
+  note      = {Source: https://github.com/kopcho/AAA},
+  license   = {CC BY 4.0}
+}`}</pre>
+        </details>
+      </div>
+    ))}
+  </div>
+
+</BaseLayout>

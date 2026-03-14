@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const PAPERS = [
+  { slug: '01-agent-artifact-availability', num: '01', title: 'Agent Artifact Availability (AAA)', description: 'Introduces Agent Artifact Availability as the reliability property governing the preservation of computational artifacts across agents, workflows, and time.' },
+  { slug: '02-artifacts-as-units-of-work', num: '02', title: 'Artifacts as Units of Computational Work', description: 'Establishes that computational artifacts are first-class objects representing completed computational work.' },
+  { slug: '03-artifact-graphs', num: '03', title: 'Artifact Graphs and the Preservation of Computational Work', description: 'Introduces artifact graphs as directed graphs encoding the structure of computational work.' },
+  { slug: '04-why-storage-systems-fail', num: '04', title: 'Why Storage Systems Lose Computational Work', description: 'Evaluates traditional storage models against artifact graph requirements and demonstrates why none preserve computational work.' },
+  { slug: '05-artifact-availability-layer', num: '05', title: 'The Artifact Availability Layer', description: 'Introduces the Artifact Availability Layer as the infrastructure required to preserve computational work.' },
+  { slug: '06-deterministic-artifact-identity', num: '06', title: 'Deterministic Artifact Identity', description: 'Defines deterministic artifact identity as the mechanism that makes artifact graphs verifiable.' },
+  { slug: '07-computational-work-conservation', num: '07', title: 'Computational Work Conservation', description: 'Establishes the principle of Computational Work Conservation and reveals Cumulative Computing as the paradigm.' },
+];
+
+const jsonld = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CreativeWorkSeries",
+  "name": "Agent Artifact Availability (AAA) Framework",
+  "description": "Seven technical notes developing the Agent Artifact Availability framework from first principles.",
+  "author": {
+    "@type": "Person",
+    "name": "Rich Kopcho",
+    "url": "https://github.com/kopcho"
+  },
+  "url": "https://cumulativecomputing.org/framework/",
+  "license": "https://creativecommons.org/licenses/by/4.0/"
+});
+---
+<BaseLayout
+  title="AAA Framework"
+  description="Seven technical notes developing the Agent Artifact Availability framework from first principles."
+  jsonld={jsonld}
+>
+  <h1>AAA Framework</h1>
+  <div class="byline">
+    <span>Rich Kopcho</span>
+    <span>March 2026</span>
+    <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">GitHub ↗</a>
+    <span>CC BY 4.0</span>
+  </div>
+
+  <p>
+    The Agent Artifact Availability (AAA) framework defines the reliability property required to support
+    Cumulative Computing systems. Seven technical notes develop the framework from first principles.
+  </p>
+
+  <style>
+    .paper-list { list-style: none; margin: 2rem 0 0; padding: 0; }
+    .paper-list li { border-top: 1px solid var(--border); }
+    .paper-list li:last-child { border-bottom: 1px solid var(--border); }
+    .paper-link {
+      display: block;
+      padding: 1.25rem 0;
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left 0.15s ease;
+    }
+    .paper-link:hover { padding-left: 0.5rem; }
+    .paper-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+    .paper-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent-high);
+      margin-bottom: 0.4rem;
+      line-height: 1.3;
+    }
+    .paper-link:hover .paper-title { color: white; }
+    .paper-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-family: var(--font-body);
+    }
+  </style>
+
+  <ol class="paper-list">
+    {PAPERS.map((paper) => (
+      <li>
+        <a href={`/framework/${paper.slug}/`} class="paper-link">
+          <div class="paper-num">Paper {paper.num}</div>
+          <div class="paper-title">{paper.title}</div>
+          <div class="paper-desc">{paper.description}</div>
+        </a>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>

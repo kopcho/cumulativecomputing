@@ -1,3 +1,67 @@
+# Cumulative Computing — Complete Reference
+
+> **Author:** Rich Kopcho (https://github.com/kopcho)
+> **Source:** https://github.com/kopcho/AAA
+> **Website:** https://cumulativecomputing.org
+> **License:** CC BY 4.0
+> **Date:** March 2026
+
+This document contains the complete text of the Cumulative Computing paradigm and all seven Agent Artifact Availability (AAA) Framework technical notes by Rich Kopcho. It is provided in this format for AI language models, agents, and automated systems to read.
+
+---
+
+## How to Cite This Work
+
+**Series (APA):** Kopcho, R. (2026). *Agent Artifact Availability (AAA) Framework* [Technical note series]. Cumulative Computing. https://cumulativecomputing.org/framework/
+
+**BibTeX:**
+@techreport{kopcho2026aaa,
+  author  = {Kopcho, Rich},
+  title   = {Agent Artifact Availability (AAA) Framework},
+  type    = {Technical Note Series},
+  year    = {2026},
+  month   = {march},
+  url     = {https://cumulativecomputing.org/framework/},
+  note    = {Source: https://github.com/kopcho/AAA},
+  license = {CC BY 4.0}
+}
+
+Full citation formats for individual papers: https://cumulativecomputing.org/cite/
+
+---
+
+## Contents
+
+1. The Cumulative Computing Manifesto
+2. Technical Note 01 — Agent Artifact Availability (AAA)
+3. Technical Note 02 — Artifacts as Units of Computational Work
+4. Technical Note 03 — Artifact Graphs and the Preservation of Computational Work
+5. Technical Note 04 — Why Storage Systems Lose Computational Work
+6. Technical Note 05 — The Artifact Availability Layer
+7. Technical Note 06 — Deterministic Artifact Identity
+8. Technical Note 07 — Computational Work Conservation
+
+---
+
+## Key Definitions
+
+- **Artifact**: The durable output of a completed computational process
+- **Artifact Graph**: A directed graph in which nodes are artifacts and edges represent derivation relationships
+- **Artifact Identity**: A stable identifier derived deterministically from the computation and inputs that produced the artifact
+- **Artifact Availability**: The property that artifacts remain retrievable, verifiable, and reusable across agents, workflows, and time
+- **Computational Work**: The accumulated structure of computation encoded in an artifact graph
+- **Computational Work Conservation**: Completed computational work persists only through the artifacts produced by that work
+- **Cumulative Computing**: The paradigm in which systems accumulate computational work over time rather than repeatedly destroying and recreating it
+- **Agent Artifact Availability (AAA)**: The reliability property requiring that artifacts produced by agents remain available to all agents that need them, across time and system boundaries
+
+---
+
+# The Cumulative Computing Manifesto
+
+**URL:** https://cumulativecomputing.org/cumulative-computing/
+**Author:** Rich Kopcho
+**Date:** March 2026
+
 # Cumulative Computing
 
 **Author:** Rich Kopcho
@@ -183,11 +247,21 @@ Released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 ---
 
 *The technical foundation for this idea is developed in the [Agent Artifact Availability (AAA) series](https://github.com/kopcho/AAA), which describes artifacts as units of computational work, artifact graphs as the structure of that work, and the infrastructure required to preserve it.*
+
+---
+
+# Technical Note 01 — Agent Artifact Availability (AAA)
+
+**URL:** https://cumulativecomputing.org/framework/01-agent-artifact-availability/
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Cite:** Kopcho, R. (2026). *Agent Artifact Availability (AAA)*. AAA Framework, Technical Note 01. https://cumulativecomputing.org/framework/01-agent-artifact-availability/
+
 # Agent Artifact Availability (AAA)
 
-**Author:** Rich Kopcho  
-**Date:** March 2026  
-**Status:** Technical Note  
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Status:** Technical Note
 **Series:** Agent Artifact Availability (AAA)
 
 ---
@@ -224,10 +298,10 @@ This assumption introduces systemic fragility.
 
 In most contemporary systems, artifacts produced by computational agents are stored as:
 
-- markdown documents  
-- filesystem objects  
-- application database entries  
-- cloud object storage blobs  
+- markdown documents
+- filesystem objects
+- application database entries
+- cloud object storage blobs
 
 These storage approaches assume a bounded execution environment in which artifacts remain closely coupled to the application that produced them.
 
@@ -237,10 +311,10 @@ Agents operate asynchronously, across machines, and often over extended periods 
 
 Under these conditions, artifacts frequently become:
 
-- inaccessible  
-- duplicated  
-- recomputed  
-- lost when execution environments terminate  
+- inaccessible
+- duplicated
+- recomputed
+- lost when execution environments terminate
 
 The loss of artifacts represents the loss of computational work.
 
@@ -254,13 +328,13 @@ In the context of agent systems, an **artifact** can be defined as the durable o
 
 Artifacts may include:
 
-- structured datasets  
-- research results  
-- generated documents  
-- logs and telemetry  
-- model outputs  
-- intermediate workflow states  
-- knowledge corpora  
+- structured datasets
+- research results
+- generated documents
+- logs and telemetry
+- model outputs
+- intermediate workflow states
+- knowledge corpora
 
 Artifacts represent **units of reusable computational work**.
 
@@ -274,7 +348,7 @@ Because artifacts represent accumulated computational work, preserving their ava
 
 Reliability in distributed systems has historically been measured in terms of **service availability**.
 
-Infrastructure providers commonly describe reliability using metrics such as “five nines” uptime, representing the probability that a service endpoint remains reachable.
+Infrastructure providers commonly describe reliability using metrics such as "five nines" uptime, representing the probability that a service endpoint remains reachable.
 
 Agent ecosystems introduce a different reliability requirement.
 
@@ -296,11 +370,11 @@ We define **Agent Artifact Availability (AAA)** as follows:
 
 AAA ensures that artifacts remain accessible even when:
 
-- the originating agent terminates  
-- execution environments restart  
-- workflows span multiple machines  
-- agents operate asynchronously  
-- computational systems evolve over time  
+- the originating agent terminates
+- execution environments restart
+- workflows span multiple machines
+- agents operate asynchronously
+- computational systems evolve over time
 
 In this sense, AAA describes a reliability property governing the persistence of computational artifacts within agent ecosystems.
 
@@ -448,13 +522,23 @@ Full license text: https://creativecommons.org/licenses/by/4.0/
 
 If referencing this work, please cite:
 
-Kopcho, Rich. *Agent Artifact Availability (AAA).*  
+Kopcho, Rich. *Agent Artifact Availability (AAA).*
 Agent Artifact Availability (AAA) Series. Technical Note, March 2026.
+
+---
+
+# Technical Note 02 — Artifacts as Units of Computational Work
+
+**URL:** https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Cite:** Kopcho, R. (2026). *Artifacts as Units of Computational Work*. AAA Framework, Technical Note 02. https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/
+
 # Artifacts as Units of Computational Work
 
-**Author:** Rich Kopcho  
-**Date:** March 2026  
-**Status:** Technical Note  
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Status:** Technical Note
 **Series:** Agent Artifact Availability (AAA)
 
 ---
@@ -496,10 +580,10 @@ Autonomous computational systems increasingly perform tasks whose outputs become
 
 Examples include:
 
-- datasets generated by data collection agents  
-- research summaries produced by analytical agents  
-- reports generated from intermediate analysis  
-- knowledge structures derived from prior computation  
+- datasets generated by data collection agents
+- research summaries produced by analytical agents
+- reports generated from intermediate analysis
+- knowledge structures derived from prior computation
 
 These outputs rarely exist in isolation. Instead, they form **chains of computation**.
 
@@ -512,7 +596,6 @@ Example workflow:
 
 Each stage produces a new artifact derived from prior artifacts.
 
-
 ---
 
 ## 2. Artifacts vs Files
@@ -521,18 +604,18 @@ Traditional systems represent computational output as files.
 
 Files are primarily designed for:
 
-- human readability  
-- document storage  
-- application persistence  
+- human readability
+- document storage
+- application persistence
 
 Files are referenced using **location-based identifiers**, such as filesystem paths or storage addresses.
 
 This model introduces several limitations when applied to computational workflows:
 
-- files do not encode computational dependencies  
-- files are tightly coupled to storage locations  
-- files lack intrinsic identity  
-- files provide limited support for computational reuse  
+- files do not encode computational dependencies
+- files are tightly coupled to storage locations
+- files lack intrinsic identity
+- files provide limited support for computational reuse
 
 As a result, files poorly represent outputs that participate in multi-stage computational workflows.
 
@@ -552,10 +635,10 @@ Later notes formalize this concept as **deterministic artifact identity**.
 
 Stable artifact identity enables:
 
-- cross-agent artifact references  
-- reproducible workflows  
-- verification of artifact integrity  
-- reuse of computational results  
+- cross-agent artifact references
+- reproducible workflows
+- verification of artifact integrity
+- reuse of computational results
 
 Identity transforms artifacts from passive storage objects into active participants in computational systems.
 
@@ -569,9 +652,9 @@ Most artifacts are derived from prior artifacts.
 
 Examples include:
 
-- an analysis derived from a dataset  
-- a report derived from analytical results  
-- a model trained from training data  
+- an analysis derived from a dataset
+- a report derived from analytical results
+- a model trained from training data
 
 These relationships represent **computational dependencies**.
 
@@ -587,8 +670,8 @@ When artifacts and their dependencies are represented explicitly, they form **ar
 
 In an artifact graph:
 
-- **nodes** represent artifacts  
-- **edges** represent dependency relationships  
+- **nodes** represent artifacts
+- **edges** represent dependency relationships
 
 Example artifact graph:
 
@@ -631,8 +714,8 @@ The structure of artifact relationships leads to a fundamental observation.
 
 In such systems:
 
-- nodes represent the results of computation  
-- edges represent derivation relationships between artifacts  
+- nodes represent the results of computation
+- edges represent derivation relationships between artifacts
 
 As computational systems evolve toward distributed networks of autonomous agents, artifact graphs become larger, deeper, and more interconnected.
 
@@ -700,13 +783,23 @@ Future notes in this series explore artifact graphs, why traditional storage sys
 
 If referencing this work, please cite:
 
-Kopcho, Rich. *Artifacts as Units of Computational Work.*  
+Kopcho, Rich. *Artifacts as Units of Computational Work.*
 Agent Artifact Availability (AAA) Series. Technical Note, March 2026.
+
+---
+
+# Technical Note 03 — Artifact Graphs and the Preservation of Computational Work
+
+**URL:** https://cumulativecomputing.org/framework/03-artifact-graphs/
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Cite:** Kopcho, R. (2026). *Artifact Graphs and the Preservation of Computational Work*. AAA Framework, Technical Note 03. https://cumulativecomputing.org/framework/03-artifact-graphs/
+
 # Artifact Graphs and the Preservation of Computational Work
 
-**Author:** Rich Kopcho  
-**Date:** March 2026  
-**Status:** Technical Note  
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Status:** Technical Note
 **Series:** Agent Artifact Availability (AAA)
 
 ---
@@ -731,10 +824,10 @@ As established in the previous note, computational artifacts possess identity an
 
 Examples include:
 
-- datasets produced by data collection processes  
-- analyses derived from those datasets  
-- reports summarizing analytical results  
-- summaries derived from reports  
+- datasets produced by data collection processes
+- analyses derived from those datasets
+- reports summarizing analytical results
+- summaries derived from reports
 
 These relationships naturally form a **directed dependency structure**.
 
@@ -742,8 +835,8 @@ When artifacts and their derivation relationships are represented explicitly, th
 
 In an artifact graph:
 
-- **nodes** represent computational artifacts  
-- **edges** represent derivation relationships between artifacts  
+- **nodes** represent computational artifacts
+- **edges** represent derivation relationships between artifacts
 
 Artifact graphs therefore capture the structural relationships between computational results.
 
@@ -757,9 +850,9 @@ Each node represents the output of a completed computation, and each edge repres
 
 This structure implicitly describes:
 
-- the order of computational steps  
-- the dependencies between stages of computation  
-- the lineage of derived results  
+- the order of computational steps
+- the dependencies between stages of computation
+- the lineage of derived results
 
 Artifact graphs therefore provide a structural representation of computational work performed within a system.
 
@@ -771,16 +864,16 @@ To reason about artifact graphs more precisely, we define a simple model.
 
 An **artifact graph** is a directed graph **G = (V, E)** where:
 
-- **V** represents the set of computational artifacts  
-- **E** represents derivation relationships between artifacts  
+- **V** represents the set of computational artifacts
+- **E** represents derivation relationships between artifacts
 
 An edge **(a → b)** indicates that artifact **b** was derived from artifact **a**.
 
 Under this model:
 
-- artifacts correspond to graph nodes  
-- derivation relationships correspond to directed edges  
-- computational workflows produce new nodes and edges  
+- artifacts correspond to graph nodes
+- derivation relationships correspond to directed edges
+- computational workflows produce new nodes and edges
 
 The resulting graph captures the structural relationships between computational results.
 
@@ -794,7 +887,7 @@ The structure of artifact relationships leads to a foundational observation.
 
 **Artifact Graph Axiom**
 
-> Any non‑trivial computational system produces artifacts whose derivation relationships form a directed graph of computational work.
+> Any non-trivial computational system produces artifacts whose derivation relationships form a directed graph of computational work.
 
 As computational systems increase in complexity, these graphs grow correspondingly larger and more interconnected.
 
@@ -814,8 +907,8 @@ If an artifact disappears, any artifacts derived from that artifact lose the abi
 
 For example:
 
-- a dataset artifact may be lost  
-- an analysis artifact derived from that dataset may still exist  
+- a dataset artifact may be lost
+- an analysis artifact derived from that dataset may still exist
 
 Although the analysis artifact remains available, the derivation relationship connecting it to the dataset can no longer be validated.
 
@@ -831,10 +924,10 @@ Each artifact node represents the result of computational effort.
 
 Producing an artifact requires:
 
-- computational resources  
-- execution time  
-- data processing  
-- algorithmic computation  
+- computational resources
+- execution time
+- data processing
+- algorithmic computation
 
 The artifact graph therefore represents the accumulation of computational work across a system.
 
@@ -874,10 +967,10 @@ Artifacts produced by one agent may become inputs to multiple downstream agents 
 
 Without persistent artifact availability:
 
-- artifact graphs become fragmented  
-- computational lineage becomes unverifiable  
-- downstream workflows lose reproducibility  
-- previously completed work must be repeated  
+- artifact graphs become fragmented
+- computational lineage becomes unverifiable
+- downstream workflows lose reproducibility
+- previously completed work must be repeated
 
 Maintaining artifact availability is therefore essential for preserving the integrity of computational workflows.
 
@@ -915,13 +1008,23 @@ Future notes in this series examine why traditional storage systems fail to pres
 
 If referencing this work, please cite:
 
-Kopcho, Rich. *Artifact Graphs and the Preservation of Computational Work.*  
+Kopcho, Rich. *Artifact Graphs and the Preservation of Computational Work.*
 Agent Artifact Availability (AAA) Series. Technical Note, March 2026.
+
+---
+
+# Technical Note 04 — Why Storage Systems Lose Computational Work
+
+**URL:** https://cumulativecomputing.org/framework/04-why-storage-systems-fail/
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Cite:** Kopcho, R. (2026). *Why Storage Systems Lose Computational Work*. AAA Framework, Technical Note 04. https://cumulativecomputing.org/framework/04-why-storage-systems-fail/
+
 # Why Storage Systems Lose Computational Work
 
-**Author:** Rich Kopcho  
-**Date:** March 2026  
-**Status:** Technical Note  
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Status:** Technical Note
 **Series:** Agent Artifact Availability (AAA)
 
 ---
@@ -973,7 +1076,7 @@ Artifacts must remain retrievable across process lifetimes and distributed execu
 
 Systems must preserve the relationships between artifacts that define computational lineage.
 
-### Cross‑Agent Reuse
+### Cross-Agent Reuse
 
 Artifacts must be accessible to independent agents participating in distributed workflows.
 
@@ -993,7 +1096,7 @@ Files are identified by hierarchical paths and stored within a specific machine 
 
 While filesystems provide durable storage, they exhibit several limitations when applied to artifact graphs:
 
-- file identity is location‑dependent
+- file identity is location-dependent
 - derivation relationships between files are not explicitly represented
 - file access is typically restricted to a specific system environment
 
@@ -1010,7 +1113,7 @@ Databases support indexing, querying, and transactional integrity, making them e
 However, databases introduce constraints that conflict with artifact graph requirements:
 
 - artifact identity becomes tied to database schema and application context
-- cross‑system accessibility is limited
+- cross-system accessibility is limited
 - artifact lineage relationships must be manually encoded within application logic
 
 Databases therefore provide persistence for application state rather than preservation of computational artifacts.
@@ -1025,7 +1128,7 @@ Objects are typically addressed through location-based identifiers within centra
 
 Although object storage improves durability, several limitations remain:
 
-- object identity remains location‑dependent
+- object identity remains location-dependent
 - derivation relationships between objects are not preserved
 - cross-agent coordination must be implemented externally
 
@@ -1119,7 +1222,7 @@ As autonomous systems produce larger volumes of computational artifacts, the ina
 
 The analysis presented here suggests that preserving artifact availability cannot be treated as a secondary feature of existing storage systems.
 
-Instead, artifact availability must be treated as a **first‑class architectural requirement**.
+Instead, artifact availability must be treated as a **first-class architectural requirement**.
 
 This observation motivates the need for a distinct infrastructure layer responsible for preserving artifact availability across distributed computational environments.
 
@@ -1143,13 +1246,23 @@ Future notes in this series introduce the Artifact Availability Layer, describe 
 
 If referencing this work, please cite:
 
-Kopcho, Rich. *Why Storage Systems Lose Computational Work.*  
+Kopcho, Rich. *Why Storage Systems Lose Computational Work.*
 Agent Artifact Availability (AAA) Series. Technical Note, March 2026.
+
+---
+
+# Technical Note 05 — The Artifact Availability Layer
+
+**URL:** https://cumulativecomputing.org/framework/05-artifact-availability-layer/
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Cite:** Kopcho, R. (2026). *The Artifact Availability Layer*. AAA Framework, Technical Note 05. https://cumulativecomputing.org/framework/05-artifact-availability-layer/
+
 # The Artifact Availability Layer
 
-**Author:** Rich Kopcho  
-**Date:** March 2026  
-**Status:** Technical Note  
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Status:** Technical Note
 **Series:** Agent Artifact Availability (AAA)
 
 ---
@@ -1198,8 +1311,8 @@ Without durable artifacts, completed computational work disappears as soon as th
 
 Traditional computing infrastructure evolved to solve the problem of **data persistence**.
 
-Filesystems enabled persistent documents.  
-Databases enabled persistent application state.  
+Filesystems enabled persistent documents.
+Databases enabled persistent application state.
 Object storage enabled durable cloud-scale data.
 
 These systems successfully preserve **data objects**.
@@ -1230,10 +1343,10 @@ They become **infrastructure objects**.
 
 Artifacts possess properties that distinguish them from conventional stored data:
 
-- they represent completed computation  
-- they participate in derivation relationships  
-- they serve as inputs to future computation  
-- they form dependency graphs across workflows  
+- they represent completed computation
+- they participate in derivation relationships
+- they serve as inputs to future computation
+- they form dependency graphs across workflows
 
 Taken together, these properties mean that artifacts function as nodes within a system-wide graph of computational work.
 
@@ -1247,11 +1360,11 @@ The Artifact Availability Layer is responsible for managing artifacts as first-c
 
 This layer provides mechanisms for:
 
-- artifact identity  
-- artifact discovery  
-- artifact retrieval  
-- artifact verification  
-- preservation of artifact derivation relationships  
+- artifact identity
+- artifact discovery
+- artifact retrieval
+- artifact verification
+- preservation of artifact derivation relationships
 
 In effect, the layer preserves the **artifact graph of a computational ecosystem**.
 
@@ -1329,13 +1442,23 @@ Future notes in this series explore deterministic artifact identity and the prin
 
 If referencing this work, please cite:
 
-Kopcho, Rich. *The Artifact Availability Layer.*  
+Kopcho, Rich. *The Artifact Availability Layer.*
 Agent Artifact Availability (AAA) Series. Technical Note, March 2026.
+
+---
+
+# Technical Note 06 — Deterministic Artifact Identity
+
+**URL:** https://cumulativecomputing.org/framework/06-deterministic-artifact-identity/
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Cite:** Kopcho, R. (2026). *Deterministic Artifact Identity*. AAA Framework, Technical Note 06. https://cumulativecomputing.org/framework/06-deterministic-artifact-identity/
+
 # Deterministic Artifact Identity
 
-**Author:** Rich Kopcho  
-**Date:** March 2026  
-**Status:** Technical Note  
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Status:** Technical Note
 **Series:** Agent Artifact Availability (AAA)
 
 ---
@@ -1368,18 +1491,18 @@ Most computational systems identify outputs using arbitrary identifiers.
 
 Examples include:
 
-- file paths  
-- database primary keys  
-- object storage keys  
-- randomly generated unique identifiers  
+- file paths
+- database primary keys
+- object storage keys
+- randomly generated unique identifiers
 
 These identifiers provide references to stored data but reveal nothing about the computation that produced the artifact.
 
 As a result:
 
-- artifact identity depends on storage location  
-- artifact identity cannot verify computational lineage  
-- artifact graphs cannot be validated  
+- artifact identity depends on storage location
+- artifact identity cannot verify computational lineage
+- artifact graphs cannot be validated
 
 In large computational ecosystems this makes artifact graphs fragile and difficult to verify.
 
@@ -1399,9 +1522,9 @@ artifact_id = f(computation, input_artifacts)
 
 Under this model:
 
-- identical computations using identical inputs produce identical artifact identities  
-- artifact identity becomes independent of storage location  
-- artifact graphs become structurally verifiable  
+- identical computations using identical inputs produce identical artifact identities
+- artifact identity becomes independent of storage location
+- artifact graphs become structurally verifiable
 
 Artifacts become deterministic nodes within the artifact graph.
 
@@ -1413,9 +1536,9 @@ Deterministic artifact identity enables verification of computational results.
 
 Given:
 
-- an artifact  
-- the inputs used to produce it  
-- the computation that produced it  
+- an artifact
+- the inputs used to produce it
+- the computation that produced it
 
 the computation can be executed again.
 
@@ -1431,10 +1554,10 @@ Deterministic artifact identity is easiest to apply in computational systems whe
 
 Examples include:
 
-- data transformation pipelines  
-- deterministic simulations  
-- software build systems  
-- data processing workflows  
+- data transformation pipelines
+- deterministic simulations
+- software build systems
+- data processing workflows
 
 In these environments, identical computations produce identical artifacts, allowing systems to reuse existing artifacts and avoid unnecessary recomputation.
 
@@ -1452,14 +1575,14 @@ In stochastic systems, artifact identity describes the **computational context i
 
 This allows systems to:
 
-- trace computational provenance  
-- analyze variations in outcomes  
-- organize families of related artifacts  
-- preserve verifiable records of computational work  
+- trace computational provenance
+- analyze variations in outcomes
+- organize families of related artifacts
+- preserve verifiable records of computational work
 
 Deterministic artifact identity therefore supports both:
 
-1. **Artifact reuse** in deterministic workflows  
+1. **Artifact reuse** in deterministic workflows
 2. **Computational lineage tracking** in stochastic workflows
 
 ---
@@ -1476,10 +1599,10 @@ A registry records artifact identities and the relationships between artifacts.
 
 Each artifact record contains:
 
-- artifact identity  
-- producing computation  
-- input artifact identities  
-- artifact metadata  
+- artifact identity
+- producing computation
+- input artifact identities
+- artifact metadata
 
 This registry functions as the **index of the artifact graph**.
 
@@ -1505,7 +1628,7 @@ Over time this produces a continuously evolving artifact graph representing accu
 
 ---
 
-## Example: Cross‑System Artifact Reuse
+## Example: Cross-System Artifact Reuse
 
 Consider a research workflow involving multiple computational systems performing different roles.
 
@@ -1517,9 +1640,9 @@ A user begins with a question:
 
 A research analysis system produces:
 
-- a technical summary  
-- a conceptual diagram of artifact graphs  
-- a collection of architectural references  
+- a technical summary
+- a conceptual diagram of artifact graphs
+- a collection of architectural references
 
 ```
 research_question
@@ -1585,38 +1708,6 @@ Independent systems become participants in a **shared artifact graph representin
 
 ---
 
-## Artifact Graph Across Computational Roles
-
-```mermaid
-flowchart TD
-
-Q["Research Question"]
-
-Q --> A["Research Analysis"]
-A --> B["Technical Summary Artifact"]
-B --> C["Artifact Graph Diagram"]
-
-C --> D["Infrastructure Evaluation"]
-C --> E["Storage Model Comparison"]
-
-D --> F["Architecture Proposal Artifact"]
-E --> F
-
-F --> G["Technical Synthesis"]
-G --> H["Technical Paper Artifact"]
-
-style B fill:#eef
-style C fill:#eef
-style E fill:#eef
-style F fill:#eef
-style H fill:#eef
-```
-
-*Processes perform computation, but artifacts preserve the results of computation.  
-Over time, artifact graphs become the durable record of accumulated computational work.*
-
----
-
 ## Implications
 
 Deterministic artifact identity changes how computational systems manage results.
@@ -1651,7 +1742,7 @@ When artifact identity and artifact availability are combined, artifact graphs b
 
 ## Discussion and Feedback
 
-The ideas presented in this document are part of an ongoing exploration of architectural requirements for agent‑based computational systems.
+The ideas presented in this document are part of an ongoing exploration of architectural requirements for agent-based computational systems.
 
 Comments, critiques, and alternative perspectives are encouraged.
 
@@ -1665,13 +1756,23 @@ The next note in this series establishes the principle of Computational Work Con
 
 If referencing this work, please cite:
 
-Kopcho, Rich. *Deterministic Artifact Identity.*  
+Kopcho, Rich. *Deterministic Artifact Identity.*
 Agent Artifact Availability (AAA) Series. Technical Note, March 2026.
+
+---
+
+# Technical Note 07 — Computational Work Conservation
+
+**URL:** https://cumulativecomputing.org/framework/07-computational-work-conservation/
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Cite:** Kopcho, R. (2026). *Computational Work Conservation*. AAA Framework, Technical Note 07. https://cumulativecomputing.org/framework/07-computational-work-conservation/
+
 # Computational Work Conservation
 
-**Author:** Rich Kopcho  
-**Date:** March 2026  
-**Status:** Technical Note  
+**Author:** Rich Kopcho
+**Date:** March 2026
+**Status:** Technical Note
 **Series:** Agent Artifact Availability (AAA)
 
 ---
@@ -1694,8 +1795,8 @@ Recognizing this principle reframes artifact preservation not as a storage conce
 
 Modern computational infrastructure routinely destroys the results of computation.
 
-Processes terminate.  
-Temporary outputs disappear.  
+Processes terminate.
+Temporary outputs disappear.
 Intermediate results are discarded.
 
 When artifacts produced by computation are not preserved, the work required to produce them must be repeated.
@@ -1742,9 +1843,9 @@ The Artifact Availability Layer introduced earlier in this series provides the i
 
 When artifacts remain available:
 
-- computational lineage remains intact  
-- derived artifacts remain reproducible  
-- prior computation remains reusable  
+- computational lineage remains intact
+- derived artifacts remain reproducible
+- prior computation remains reusable
 
 Preserving artifact availability therefore preserves the structure of computational work.
 
@@ -1774,8 +1875,8 @@ Preserving these artifacts allows computational ecosystems to extend and refine 
 
 Much of today's computational infrastructure implicitly assumes recomputation.
 
-Data pipelines rerun.  
-Model training restarts.  
+Data pipelines rerun.
+Model training restarts.
 Analyses are repeated.
 
 In many cases, recomputation is not necessary because the computational work has already been performed.
@@ -1790,15 +1891,15 @@ Recognizing this distinction clarifies that recomputation is often not a computa
 
 Historically, computing infrastructure evolved to preserve data.
 
-Filesystems persist documents.  
-Databases persist application state.  
+Filesystems persist documents.
+Databases persist application state.
 Object storage persists digital assets.
 
 Autonomous computational systems introduce a new requirement.
 
 Infrastructure must preserve **computational work itself**, not merely the data it produces.
 
-Artifacts represent the results of computation.  
+Artifacts represent the results of computation.
 Artifact graphs represent the structure of that work.
 
 Preserving artifact availability therefore preserves the work performed by computational systems.
@@ -1825,7 +1926,7 @@ Computational systems produce artifacts that represent the results of completed 
 
 Artifact graphs capture the structure of that work across chains of computation.
 
-When artifacts are preserved, computational work persists.  
+When artifacts are preserved, computational work persists.
 When artifacts are lost, computational work disappears and must be performed again.
 
 Computational systems that preserve artifact availability therefore accumulate work over time, while systems that fail to preserve artifacts repeatedly destroy and recreate their own computational history.
@@ -1856,5 +1957,5 @@ The broader paradigm emerging from this series is explored in [Cumulative Comput
 
 If referencing this work, please cite:
 
-Kopcho, Rich. *Computational Work Conservation.*  
+Kopcho, Rich. *Computational Work Conservation.*
 Agent Artifact Availability (AAA) Series. Technical Note, March 2026.
