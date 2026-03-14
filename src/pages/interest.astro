@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const TURNSTILE_SITE_KEY = '0x4AAAAAACqyAEB1uAyJKVjS';
 ---
 <BaseLayout
   title="Get Involved — Cumulative Computing"
@@ -37,6 +38,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       border-color: var(--accent);
     }
     textarea { resize: vertical; min-height: 120px; }
+    /* Honeypot — visually hidden but not display:none so bots find it */
+    .hp-field {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
     .submit-btn {
       font-family: var(--font-mono);
       font-size: 0.875rem;
@@ -51,6 +60,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     .submit-btn:hover { background: var(--accent-high); }
     .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .turnstile-wrap { margin-bottom: 1.25rem; }
     .success { display: none; padding: 1.25rem; background: #f0faf4; border: 1px solid #a8d5b5; border-radius: 6px; color: #2d6a4f; font-size: 0.95rem; margin-top: 1rem; }
     .error { display: none; padding: 1.25rem; background: #fff0f0; border: 1px solid #f5a5a5; border-radius: 6px; color: #c0392b; font-size: 0.95rem; margin-top: 1rem; }
     .direct-contact { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
@@ -58,6 +68,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .direct-contact p { font-size: 0.95rem; color: var(--text-muted); }
     .direct-contact a { color: var(--accent); }
   </style>
+
+  <!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <h1>Get Involved</h1>
 
@@ -86,6 +99,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <div class="form-section">
     <form id="interest-form">
+
+      <!-- Honeypot — bots fill this, humans don't -->
+      <div class="hp-field" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+      </div>
+
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required placeholder="Your name" />
@@ -109,6 +129,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <label for="message">What brings you here? (optional)</label>
         <textarea id="message" name="message" placeholder="A sentence or two is fine."></textarea>
       </div>
+
+      <!-- Cloudflare Turnstile widget -->
+      <div class="turnstile-wrap">
+        <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-theme="light"></div>
+      </div>
+
       <button type="submit" class="submit-btn" id="submit-btn">Send</button>
       <div class="success" id="success-msg">Got it — thanks for reaching out. Rich will be in touch.</div>
       <div class="error" id="error-msg">Something went wrong. Try emailing <a href="mailto:hello@cumulativecomputing.org">hello@cumulativecomputing.org</a> directly.</div>
@@ -138,6 +164,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         body: new FormData(form),
       });
 
+      const data = await res.json();
+
       if (res.ok) {
         form.style.display = 'none';
         success.style.display = 'block';
@@ -145,6 +173,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         btn.disabled = false;
         btn.textContent = 'Send';
         error.style.display = 'block';
+        // Show specific error if human check failed
+        if (data.error === 'human-check') {
+          (error as HTMLElement).textContent = 'Please complete the human verification before submitting.';
+        }
       }
     });
   </script>

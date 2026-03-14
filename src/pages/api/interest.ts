@@ -2,8 +2,8 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { sql } from '@vercel/postgres';
+import dns from 'node:dns/promises';
 
-// Create table if it doesn't exist
 async function ensureTable() {
   await sql`
     CREATE TABLE IF NOT EXISTS interest_submissions (
@@ -17,16 +17,84 @@ async function ensureTable() {
   `;
 }
 
-export const POST: APIRoute = async ({ request }) => {
+async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
+  const secretKey = process.env.TURNSTILE_SECRET_KEY;
+  if (!secretKey) return false;
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ secret: secretKey, response: token, remoteip: ip }),
+  });
+  const data = await res.json() as { success: boolean };
+  return data.success === true;
+}
+
+async function emailDomainExists(email: string): Promise<boolean> {
+  try {
+    const domain = email.split('@')[1];
+    if (!domain) return false;
+    const records = await dns.resolveMx(domain);
+    return records.length > 0;
+  } catch {
+    return false;
+  }
+}
+
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
     const data = await request.formData();
-    const name = (data.get('name') as string)?.trim();
-    const email = (data.get('email') as string)?.trim();
+
+    // Honeypot check — bots fill this field, humans don't
+    const honeypot = data.get('website') as string;
+    if (honeypot && honeypot.trim() !== '') {
+      // Silently accept so bots don't know they were caught
+      return new Response(JSON.stringify({ ok: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Turnstile human verification
+    const turnstileToken = data.get('cf-turnstile-response') as string;
+    if (!turnstileToken) {
+      return new Response(JSON.stringify({ error: 'human-check' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+    const humanVerified = await verifyTurnstile(turnstileToken, clientAddress);
+    if (!humanVerified) {
+      return new Response(JSON.stringify({ error: 'human-check' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Field validation
+    const name = (data.get('name') as string)?.trim().slice(0, 200);
+    const email = (data.get('email') as string)?.trim().toLowerCase().slice(0, 300);
     const interest_type = (data.get('interest') as string)?.trim() || null;
-    const message = (data.get('message') as string)?.trim() || null;
+    const message = (data.get('message') as string)?.trim().slice(0, 2000) || null;
 
     if (!name || !email) {
       return new Response(JSON.stringify({ error: 'Name and email are required.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Basic email format check
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      return new Response(JSON.stringify({ error: 'Invalid email address.' }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // MX record check — verify the email domain actually accepts mail
+    const domainValid = await emailDomainExists(email);
+    if (!domainValid) {
+      return new Response(JSON.stringify({ error: 'Email domain does not appear to accept mail.' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -43,6 +111,7 @@ export const POST: APIRoute = async ({ request }) => {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
+
   } catch (err) {
     console.error('Interest form error:', err);
     return new Response(JSON.stringify({ error: 'Server error.' }), {
