@@ -187,6 +187,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAACqyAEB1uAyJKVjS';
       } else {
         btn.disabled = false;
         btn.textContent = 'Send';
+        error.textContent = `Error: ${data.error || res.status}`;
         error.style.display = 'block';
       }
     });
