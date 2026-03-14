@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Get Involved — Cumulative Computing"
+  description="Connect with the Cumulative Computing project. Researchers, developers, investors, and builders are welcome."
+  keywords="cumulative computing contact, AAA framework, Rich Kopcho, get involved"
+>
+  <style>
+    .intro { margin-bottom: 2.5rem; }
+    .intro p { font-size: 1.05rem; }
+    .audiences { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0 3rem; }
+    .audience {
+      background: #f0efe9;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem 1.25rem;
+    }
+    .audience h3 { font-size: 0.9rem; font-family: var(--font-mono); color: var(--accent); margin: 0 0 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    .audience p { font-size: 0.875rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+    .form-section { max-width: 560px; }
+    .form-group { margin-bottom: 1.25rem; }
+    label { display: block; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.65rem 0.875rem;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      transition: border-color 0.15s ease;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    textarea { resize: vertical; min-height: 120px; }
+    .submit-btn {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      padding: 0.65rem 1.5rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background 0.15s ease;
+    }
+    .submit-btn:hover { background: var(--accent-high); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .success { display: none; padding: 1.25rem; background: #f0faf4; border: 1px solid #a8d5b5; border-radius: 6px; color: #2d6a4f; font-size: 0.95rem; margin-top: 1rem; }
+    .error { display: none; padding: 1.25rem; background: #fff0f0; border: 1px solid #f5a5a5; border-radius: 6px; color: #c0392b; font-size: 0.95rem; margin-top: 1rem; }
+    .direct-contact { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); }
+    .direct-contact h2 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+    .direct-contact p { font-size: 0.95rem; color: var(--text-muted); }
+    .direct-contact a { color: var(--accent); }
+  </style>
+
+  <h1>Get Involved</h1>
+
+  <div class="intro">
+    <p>Cumulative Computing is an early-stage paradigm with open questions in architecture, implementation, and application. Researchers, developers, investors, and builders are welcome.</p>
+  </div>
+
+  <div class="audiences">
+    <div class="audience">
+      <h3>Researchers</h3>
+      <p>Exploring artifact availability, distributed systems, or computational work preservation.</p>
+    </div>
+    <div class="audience">
+      <h3>Developers</h3>
+      <p>Building pipelines, agent systems, or infrastructure where work is repeatedly recomputed.</p>
+    </div>
+    <div class="audience">
+      <h3>Investors</h3>
+      <p>Interested in the infrastructure layer required for autonomous computational systems.</p>
+    </div>
+    <div class="audience">
+      <h3>Builders</h3>
+      <p>Working on tools, platforms, or systems that could benefit from cumulative architecture.</p>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <form id="interest-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Your name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      </div>
+      <div class="form-group">
+        <label for="interest">I am a</label>
+        <select id="interest" name="interest">
+          <option value="">Select one</option>
+          <option value="researcher">Researcher</option>
+          <option value="developer">Developer / Engineer</option>
+          <option value="investor">Investor</option>
+          <option value="builder">Builder / Founder</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">What brings you here? (optional)</label>
+        <textarea id="message" name="message" placeholder="A sentence or two is fine."></textarea>
+      </div>
+      <button type="submit" class="submit-btn" id="submit-btn">Send</button>
+      <div class="success" id="success-msg">Got it — thanks for reaching out. Rich will be in touch.</div>
+      <div class="error" id="error-msg">Something went wrong. Try emailing <a href="mailto:hello@cumulativecomputing.org">hello@cumulativecomputing.org</a> directly.</div>
+    </form>
+  </div>
+
+  <div class="direct-contact">
+    <h2>Direct contact</h2>
+    <p>General inquiries: <a href="mailto:hello@cumulativecomputing.org">hello@cumulativecomputing.org</a></p>
+    <p>Investor inquiries: <a href="mailto:rich@cumulativecomputing.org">rich@cumulativecomputing.org</a></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('interest-form') as HTMLFormElement;
+    const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const success = document.getElementById('success-msg') as HTMLElement;
+    const error = document.getElementById('error-msg') as HTMLElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      error.style.display = 'none';
+
+      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        success.style.display = 'block';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Send';
+        error.style.display = 'block';
+      }
+    });
+  </script>
+</BaseLayout>
