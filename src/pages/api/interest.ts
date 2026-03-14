@@ -17,16 +17,17 @@ async function ensureTable() {
   `;
 }
 
-async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
+async function verifyTurnstile(token: string, ip: string): Promise<{ ok: boolean; reason: string }> {
   const secretKey = process.env.TURNSTILE_SECRET_KEY;
-  if (!secretKey) return false;
+  if (!secretKey) return { ok: false, reason: 'secret-missing' };
   const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ secret: secretKey, response: token, remoteip: ip }),
   });
-  const data = await res.json() as { success: boolean };
-  return data.success === true;
+  const data = await res.json() as { success: boolean; 'error-codes'?: string[] };
+  if (data.success) return { ok: true, reason: 'ok' };
+  return { ok: false, reason: (data['error-codes'] ?? ['unknown'])[0] };
 }
 
 async function emailDomainExists(email: string): Promise<boolean> {
@@ -62,9 +63,9 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         headers: { 'Content-Type': 'application/json' },
       });
     }
-    const humanVerified = await verifyTurnstile(turnstileToken, clientAddress);
-    if (!humanVerified) {
-      return new Response(JSON.stringify({ error: 'human-check' }), {
+    const turnstileResult = await verifyTurnstile(turnstileToken, clientAddress);
+    if (!turnstileResult.ok) {
+      return new Response(JSON.stringify({ error: `human-check: ${turnstileResult.reason}` }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
