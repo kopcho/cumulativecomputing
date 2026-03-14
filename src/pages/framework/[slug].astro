@@ -89,7 +89,22 @@ const idx = papers.findIndex((p: typeof paper) => p.slug === paper.slug);
 const prev = idx > 0 ? papers[idx - 1] : null;
 const next = idx < papers.length - 1 ? papers[idx + 1] : null;
 
-const html = marked(rawContent);
+// Rewrite relative .md links from GitHub source to website URLs
+const MD_LINK_MAP: Record<string, string> = {
+  'cumulative_computing.md': '/cumulative-computing/',
+  '01_agent_artifact_availability.md': '/framework/01-agent-artifact-availability/',
+  '02_artifacts_as_units_of_computational_work.md': '/framework/02-artifacts-as-units-of-work/',
+  '03_artifact_graphs.md': '/framework/03-artifact-graphs/',
+  '04_why_storage_systems_lose_computational_work.md': '/framework/04-why-storage-systems-fail/',
+  '05_artifact_availability_layer.md': '/framework/05-artifact-availability-layer/',
+  '06_deterministic_artifact_identity.md': '/framework/06-deterministic-artifact-identity/',
+  '07_computational_work_conservation.md': '/framework/07-computational-work-conservation/',
+};
+let fixedContent = rawContent;
+for (const [mdFile, url] of Object.entries(MD_LINK_MAP)) {
+  fixedContent = fixedContent.replaceAll(mdFile, url);
+}
+const html = marked(fixedContent);
 
 const bibtexKey = `kopcho2026aaa${paper.num}`;
 const githubFileBase = paper.githubFile.replace('.md', '');
