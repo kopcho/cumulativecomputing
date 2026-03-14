@@ -67,6 +67,14 @@ export async function getStaticPaths() {
       if (end !== -1) rawContent = rawContent.slice(end + 3).trim();
     }
 
+    // Strip leading h1 title + author/date metadata block (everything up to the first --- hr)
+    // GitHub files open with: # Title\n\n**Author:** ...\n**Date:** ...\n\n---\n\n## Abstract
+    rawContent = rawContent.replace(/^#[^\n]*\n/, '').trim();
+    const firstHr = rawContent.indexOf('\n---\n');
+    if (firstHr !== -1 && firstHr < 400) {
+      rawContent = rawContent.slice(firstHr + 5).trim();
+    }
+
     return {
       params: { slug: paper.slug },
       props: { paper, rawContent, papers: PAPERS }
