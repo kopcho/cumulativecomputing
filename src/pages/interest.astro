@@ -132,10 +132,15 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAACqyAEB1uAyJKVjS';
 
       <!-- Cloudflare Turnstile widget -->
       <div class="turnstile-wrap">
-        <div class="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-theme="light"></div>
+        <div class="cf-turnstile"
+          data-sitekey={TURNSTILE_SITE_KEY}
+          data-theme="light"
+          data-callback="onTurnstileSuccess"
+          data-expired-callback="onTurnstileExpired"
+        ></div>
       </div>
 
-      <button type="submit" class="submit-btn" id="submit-btn">Send</button>
+      <button type="submit" class="submit-btn" id="submit-btn" disabled>Verifying...</button>
       <div class="success" id="success-msg">Got it — thanks for reaching out. Rich will be in touch.</div>
       <div class="error" id="error-msg">Something went wrong. Try emailing <a href="mailto:hello@cumulativecomputing.org">hello@cumulativecomputing.org</a> directly.</div>
     </form>
@@ -152,6 +157,16 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAACqyAEB1uAyJKVjS';
     const btn = document.getElementById('submit-btn') as HTMLButtonElement;
     const success = document.getElementById('success-msg') as HTMLElement;
     const error = document.getElementById('error-msg') as HTMLElement;
+
+    // Turnstile callbacks — enable button only after verified
+    (window as any).onTurnstileSuccess = () => {
+      btn.disabled = false;
+      btn.textContent = 'Send';
+    };
+    (window as any).onTurnstileExpired = () => {
+      btn.disabled = true;
+      btn.textContent = 'Verifying...';
+    };
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -173,10 +188,6 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAACqyAEB1uAyJKVjS';
         btn.disabled = false;
         btn.textContent = 'Send';
         error.style.display = 'block';
-        // Show specific error if human check failed
-        if (data.error === 'human-check') {
-          (error as HTMLElement).textContent = 'Please complete the human verification before submitting.';
-        }
       }
     });
   </script>
