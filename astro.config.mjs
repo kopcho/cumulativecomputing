@@ -1,9 +1,11 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   site: 'https://cumulativecomputing.org',
+  adapter: vercel(),
   integrations: [mdx(), sitemap()],
   redirects: {
     '/framework/01': '/framework/01-agent-artifact-availability',

@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Agent Artifact Availability (AAA) — Cumulative Computing</title><meta name="description" content="Introduces Agent Artifact Availability as the reliability property governing the preservation of computational artifacts across agents, workflows, and time."><meta name="robots" content="index, follow"><meta name="author" content="Rich Kopcho"><meta name="keywords" content="cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, Agent Artifact Availability (AAA)"><!-- Open Graph --><meta property="og:title" content="Agent Artifact Availability (AAA) — Cumulative Computing"><meta property="og:description" content="Introduces Agent Artifact Availability as the reliability property governing the preservation of computational artifacts across agents, workflows, and time."><meta property="og:url" content="https://cumulativecomputing.org/framework/01-agent-artifact-availability/"><meta property="og:type" content="article"><meta property="og:site_name" content="Cumulative Computing"><meta property="article:author" content="https://github.com/kopcho"><meta property="article:published_time" content="2026-03-01"><!-- Academic citation tags (Google Scholar, Semantic Scholar) --><meta name="citation_title" content="Agent Artifact Availability (AAA)"><meta name="citation_author" content="Kopcho, Rich"><meta name="citation_publication_date" content="2026/03"><meta name="citation_online_date" content="2026/03/01"><meta name="citation_language" content="en"><meta name="citation_fulltext_html_url" content="https://cumulativecomputing.org/framework/01-agent-artifact-availability/"><meta name="citation_abstract_html_url" content="https://cumulativecomputing.org/framework/01-agent-artifact-availability/"><link rel="canonical" href="https://cumulativecomputing.org/framework/01-agent-artifact-availability/"><link rel="me" href="https://github.com/kopcho"><link rel="license" href="https://creativecommons.org/licenses/by/4.0/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"Agent Artifact Availability (AAA)","headline":"Agent Artifact Availability (AAA)","description":"Introduces Agent Artifact Availability as the reliability property governing the preservation of computational artifacts across agents, workflows, and time.","abstract":"Introduces Agent Artifact Availability as the reliability property governing the preservation of computational artifacts across agents, workflows, and time.","author":{"@type":"Person","name":"Rich Kopcho","url":"https://github.com/kopcho"},"publisher":{"@type":"Organization","name":"Cumulative Computing","url":"https://cumulativecomputing.org"},"datePublished":"2026-03-01","dateModified":"2026-03-01","license":"https://creativecommons.org/licenses/by/4.0/","inLanguage":"en","keywords":"cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, Agent Artifact Availability (AAA)","url":"https://cumulativecomputing.org/framework/01-agent-artifact-availability/","sameAs":["https://github.com/kopcho/AAA/blob/main/01_agent_artifact_availability.md","https://cumulativecomputing.org/framework/01-agent-artifact-availability/"],"isPartOf":{"@type":"CreativeWorkSeries","name":"Agent Artifact Availability (AAA) Framework","url":"https://github.com/kopcho/AAA"},"position":1},{"@context":"https://schema.org","@type":"Person","name":"Rich Kopcho","url":"https://github.com/kopcho","sameAs":["https://github.com/kopcho","https://cumulativecomputing.org"]}]</script><style>*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}:root{--bg: #fafaf8;--bg2: #f0efe9;--text: #1a1a1a;--text-muted: #666;--accent: #2a4db5;--accent-high: #1a3a9e;--border: #ddddd8;--font-body: Georgia, "Times New Roman", serif;--font-mono: "IBM Plex Mono", "Courier New", monospace}html{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:18px;line-height:1.7}body{min-height:100vh;display:flex;flex-direction:column}a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}a:hover{color:var(--accent-high)}nav{border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:.875rem}nav a{text-decoration:none}nav .site-name{color:var(--text);font-weight:500;letter-spacing:.02em}nav .site-name:hover{color:var(--accent)}nav .nav-links{display:flex;gap:1.5rem;align-items:center}nav .nav-links a{color:var(--text-muted)}nav .nav-links a:hover{color:var(--text)}main{flex:1;max-width:760px;margin:0 auto;padding:3rem 2rem 6rem;width:100%}footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted)}footer a{color:var(--text-muted)}footer a:hover{color:var(--text)}h1{font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:1rem;color:var(--text);letter-spacing:-.02em}h2{font-size:1.4rem;font-weight:700;margin:2.5rem 0 .75rem;color:var(--text)}h3{font-size:1.1rem;font-weight:700;margin:2rem 0 .5rem;color:var(--text)}p{margin-bottom:1.25rem}ul,ol{margin:0 0 1.25rem 1.5rem}li{margin-bottom:.4rem}blockquote{border-left:3px solid var(--accent);padding:.75rem 1.25rem;margin:1.5rem 0;background:var(--bg2);border-radius:0 4px 4px 0;font-style:italic;color:var(--text-muted)}code{font-family:var(--font-mono);font-size:.85em;background:var(--bg2);padding:.15em .4em;border-radius:3px;color:var(--text)}pre{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem;overflow-x:auto;margin:1.5rem 0}pre code{background:none;padding:0;color:var(--text)}hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9rem}th,td{border:1px solid var(--border);padding:.6rem .875rem;text-align:left}th{background:var(--bg2);color:var(--text);font-family:var(--font-mono);font-weight:500}strong{color:var(--text);font-weight:700}.byline{font-family:var(--font-mono);font-size:.8rem;color:var(--text-muted);margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}.byline a{color:var(--text-muted);text-decoration:none}.byline a:hover{color:var(--accent)}.paper-nav{display:flex;justify-content:space-between;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.8rem;gap:1rem}.paper-nav a{color:var(--text-muted);text-decoration:none;max-width:45%}.paper-nav a:hover{color:var(--accent)}.paper-nav .next{text-align:right;margin-left:auto}@media(max-width:600px){main{padding:2rem 1.25rem 4rem}nav{padding:.875rem 1.25rem}h1{font-size:1.5rem}}
+.citation-block[data-astro-cid-sihaixxr]{margin-top:4rem;padding:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px}.citation-block[data-astro-cid-sihaixxr] h2[data-astro-cid-sihaixxr]{font-size:1rem;font-family:var(--font-mono);color:var(--text-muted);margin:0 0 1rem;text-transform:uppercase;letter-spacing:.08em}.citation-apa[data-astro-cid-sihaixxr]{font-size:.9rem;line-height:1.6;color:var(--text);margin-bottom:1rem}.citation-block[data-astro-cid-sihaixxr] details[data-astro-cid-sihaixxr]{margin:1rem 0}.citation-block[data-astro-cid-sihaixxr] summary[data-astro-cid-sihaixxr]{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);cursor:pointer;margin-bottom:.75rem}.citation-block[data-astro-cid-sihaixxr] summary[data-astro-cid-sihaixxr]:hover{color:var(--accent-high)}.citation-block[data-astro-cid-sihaixxr] pre[data-astro-cid-sihaixxr]{margin:0;font-size:.78rem}.citation-more[data-astro-cid-sihaixxr]{font-family:var(--font-mono);font-size:.78rem;margin:.75rem 0 0}.bibtex-wrapper[data-astro-cid-sihaixxr]{position:relative}.copy-btn[data-astro-cid-sihaixxr]{position:absolute;top:.6rem;right:.6rem;font-family:var(--font-mono);font-size:.72rem;padding:.25rem .6rem;background:var(--bg);color:var(--accent);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all .15s ease}.copy-btn[data-astro-cid-sihaixxr]:hover{border-color:var(--accent);color:var(--accent-high)}.copy-btn[data-astro-cid-sihaixxr].copied{color:#6fcf97;border-color:#6fcf97}
+</style></head> <body> <nav> <a href="/" class="site-name">Cumulative Computing</a> <div class="nav-links"> <a href="/framework/">Framework</a> <a href="/cite/">Cite</a> <a href="/interest/">Get Involved</a> <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">GitHub ↗</a> </div> </nav> <main>  <h1 data-astro-cid-sihaixxr>Agent Artifact Availability (AAA)</h1> <div class="byline" data-astro-cid-sihaixxr> <span data-astro-cid-sihaixxr>Rich Kopcho</span> <span data-astro-cid-sihaixxr>March 2026</span> <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener" data-astro-cid-sihaixxr>View on GitHub ↗</a> <span data-astro-cid-sihaixxr>CC BY 4.0</span> </div> <div class="paper-content" data-astro-cid-sihaixxr><p><strong>Author:</strong> Rich Kopcho<br><strong>Date:</strong> March 2026<br><strong>Status:</strong> Technical Note<br><strong>Series:</strong> Agent Artifact Availability (AAA)</p>
+<hr>
+<h2>Abstract</h2>
+<p>Every autonomous system leaves a trail of outputs: datasets, research results, workflow logs, structured analyses, and intermediate computational states. These are not temporary byproducts — they are artifacts representing completed computational work whose availability determines whether that work endures.</p>
+<p>In most contemporary software architectures, such artifacts are treated as temporary data tied to the execution environment that produced them. As computational systems evolve toward distributed networks of autonomous agents operating across machines and time horizons, this assumption becomes increasingly fragile.</p>
+<p>This document introduces <strong>Agent Artifact Availability (AAA)</strong> as a reliability property governing the preservation of computational artifacts across agents, workflows, and time. AAA describes the requirement that artifacts remain retrievable, verifiable, and reusable independent of the processes that originally produced them.</p>
+<p>The analysis demonstrates why traditional storage models fail to satisfy this requirement and argues that artifact availability must emerge as a distinct architectural layer in the evolving infrastructure of agent systems.</p>
+<hr>
+<h2>1. System Observation</h2>
+<p>Autonomous computational systems increasingly perform complex tasks without direct human supervision. These systems generate large volumes of machine-produced outputs including research summaries, structured datasets, workflow logs, and intermediate computational states.</p>
+<p>Such outputs represent the results of computational work performed by autonomous agents.</p>
+<p>Unlike traditional application data, these outputs are often consumed by other computational systems. One agent may generate artifacts that become inputs for subsequent agents, workflows, or analytical processes.</p>
+<p>As a result, the outputs of computation themselves become valuable objects within the computational ecosystem.</p>
+<p>However, existing software architectures typically treat these outputs as transient artifacts tied to the lifetime of the process or application that generated them.</p>
+<p>This assumption introduces systemic fragility.</p>
+<hr>
+<h2>2. The Problem of Ephemeral Computational Artifacts</h2>
+<p>In most contemporary systems, artifacts produced by computational agents are stored as:</p>
+<ul>
+<li>markdown documents  </li>
+<li>filesystem objects  </li>
+<li>application database entries  </li>
+<li>cloud object storage blobs</li>
+</ul>
+<p>These storage approaches assume a bounded execution environment in which artifacts remain closely coupled to the application that produced them.</p>
+<p>Agent ecosystems violate these assumptions.</p>
+<p>Agents operate asynchronously, across machines, and often over extended periods of time. They may spawn other agents, exchange artifacts, and perform workflows that span multiple computational environments.</p>
+<p>Under these conditions, artifacts frequently become:</p>
+<ul>
+<li>inaccessible  </li>
+<li>duplicated  </li>
+<li>recomputed  </li>
+<li>lost when execution environments terminate</li>
+</ul>
+<p>The loss of artifacts represents the loss of computational work.</p>
+<p>As the scale and complexity of agent systems increase, the inability to reliably preserve artifacts becomes a fundamental architectural limitation.</p>
+<hr>
+<h2>3. Artifacts as Computational Objects</h2>
+<p>In the context of agent systems, an <strong>artifact</strong> can be defined as the durable output of a computational process that represents completed computational work.</p>
+<p>Artifacts may include:</p>
+<ul>
+<li>structured datasets  </li>
+<li>research results  </li>
+<li>generated documents  </li>
+<li>logs and telemetry  </li>
+<li>model outputs  </li>
+<li>intermediate workflow states  </li>
+<li>knowledge corpora</li>
+</ul>
+<p>Artifacts represent <strong>units of reusable computational work</strong>.</p>
+<p>An artifact produced by one agent may later be reused by other agents performing related tasks. In many cases, artifacts become inputs to subsequent workflows or analytical processes.</p>
+<p>Because artifacts represent accumulated computational work, preserving their availability becomes essential for maintaining system efficiency and reproducibility.</p>
+<hr>
+<h2>4. Reliability in Agent Systems</h2>
+<p>Reliability in distributed systems has historically been measured in terms of <strong>service availability</strong>.</p>
+<p>Infrastructure providers commonly describe reliability using metrics such as “five nines” uptime, representing the probability that a service endpoint remains reachable.</p>
+<p>Agent ecosystems introduce a different reliability requirement.</p>
+<p>The value of these systems lies not only in the ability to perform computation, but also in the <strong>preservation of the results of that computation</strong>.</p>
+<p>A system may remain operational while losing the outputs of previously executed tasks. In such cases, the effective reliability of the system deteriorates because computational work must be repeated.</p>
+<p>From the perspective of the agent ecosystem, the disappearance of artifacts represents the destruction of computational work.</p>
+<p>This motivates a different reliability property.</p>
+<hr>
+<h2>5. Agent Artifact Availability (AAA)</h2>
+<p>We define <strong>Agent Artifact Availability (AAA)</strong> as follows:</p>
+<blockquote>
+<p>Agent Artifact Availability is the property that artifacts produced by computational agents remain retrievable, verifiable, and reusable across agents, workflows, and time.</p>
+</blockquote>
+<p>AAA ensures that artifacts remain accessible even when:</p>
+<ul>
+<li>the originating agent terminates  </li>
+<li>execution environments restart  </li>
+<li>workflows span multiple machines  </li>
+<li>agents operate asynchronously  </li>
+<li>computational systems evolve over time</li>
+</ul>
+<p>In this sense, AAA describes a reliability property governing the persistence of computational artifacts within agent ecosystems.</p>
+<hr>
+<h2>6. Conservation of Computational Work</h2>
+<p>In physical systems, conservation laws describe quantities that cannot be destroyed.</p>
+<p>Energy, for example, may change form but cannot disappear.</p>
+<p>Artifacts represent the results of computational work performed by autonomous systems. When these artifacts disappear, the system must recompute lost work, consuming additional resources and reducing overall efficiency.</p>
+<p>AAA reflects a form of conservation within computational systems.</p>
+<p>When artifacts are preserved, the work performed by agents remains available for reuse. When artifacts disappear, that work must be performed again.</p>
+<p>Systems that preserve artifacts conserve computational work.</p>
+<p>Systems that lose artifacts destroy it.</p>
+<p>As agent ecosystems scale, preserving computational work becomes a fundamental infrastructure requirement.</p>
+<hr>
+<h2>7. Limitations of Traditional Storage Models</h2>
+<p>Existing storage models were not designed for the preservation of artifacts across autonomous computational systems. They were designed primarily to store data within bounded application environments rather than preserve reusable computational outputs across independent agents and workflows.</p>
+<h3>Files and Markdown Documents</h3>
+<p>Files and markdown documents are optimized for human readability. They rely on location-based addressing and lack deterministic artifact identity.</p>
+<h3>Application Databases</h3>
+<p>Application databases couple artifacts to a specific software environment, limiting reuse across independent agents and workflows.</p>
+<h3>Cloud Object Storage</h3>
+<p>Object storage provides persistence but relies on centralized infrastructure and account-based access models that autonomous agents cannot easily participate in.</p>
+<h3>Version Control Systems</h3>
+<p>Version control systems provide content identity but are optimized for source code collaboration rather than large-scale computational artifact exchange.</p>
+<p>These storage models were designed for human-operated software systems rather than machine-driven computational ecosystems.</p>
+<hr>
+<h2>8. Formal Definition of AAA</h2>
+<p>A computational system satisfies <strong>Agent Artifact Availability (AAA)</strong> if artifacts produced within that system satisfy the following properties:</p>
+<p><strong>Retrievability</strong></p>
+<p>Artifacts can be accessed through a deterministic identifier independent of the execution environment that produced them.</p>
+<p><strong>Verifiability</strong></p>
+<p>Retrieved artifacts can be validated as identical to the originally produced computational output.</p>
+<p><strong>Reusability</strong></p>
+<p>Artifacts can be consumed by other agents or workflows without requiring recomputation.</p>
+<p><strong>Persistence Across Execution Boundaries</strong></p>
+<p>Artifacts remain accessible even when the originating agent, process, or machine is no longer active.</p>
+<p>A system exhibits strong AAA when these properties hold with high probability across distributed execution environments.</p>
+<hr>
+<h2>9. Comparative Analysis of Storage Models</h2>
+<table>
+<thead>
+<tr>
+<th>Storage Model</th>
+<th>Identity Model</th>
+<th>Cross-Agent Reuse</th>
+<th>Persistence Scope</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Files / Markdown</td>
+<td>Location based</td>
+<td>Limited</td>
+<td>Local system</td>
+</tr>
+<tr>
+<td>Application Databases</td>
+<td>Schema dependent</td>
+<td>Restricted</td>
+<td>Application scope</td>
+</tr>
+<tr>
+<td>Cloud Object Storage</td>
+<td>Location based</td>
+<td>Possible</td>
+<td>Provider scope</td>
+</tr>
+<tr>
+<td>Version Control</td>
+<td>Content hash</td>
+<td>Moderate</td>
+<td>Repository scope</td>
+</tr>
+<tr>
+<td>Artifact Availability Systems</td>
+<td>Artifact identity</td>
+<td>Native</td>
+<td>System-wide</td>
+</tr>
+</tbody></table>
+<p>Traditional storage models rely primarily on <strong>location-based identity</strong>. Artifact availability systems rely on <strong>deterministic artifact identity</strong>, allowing artifacts to remain accessible independently of specific applications or machines.</p>
+<hr>
+<h2>10. Toward an Availability Layer</h2>
+<p>The architecture of distributed systems increasingly separates responsibilities across layers.</p>
+<p>Execution environments perform computation.</p>
+<p>Communication protocols enable systems to exchange information.</p>
+<p>Payment layers enable economic coordination.</p>
+<p>Agent ecosystems introduce an additional architectural requirement: preserving the outputs of autonomous computation as reusable artifacts.</p>
+<p>This requirement implies the emergence of a distinct infrastructure layer dedicated to artifact availability.</p>
+<p>Agent Artifact Availability describes the reliability property that such systems must satisfy.</p>
+<hr>
+<h2>Conclusion</h2>
+<p>The transition from traditional software systems to agent-driven computational ecosystems introduces a fundamental architectural challenge: preserving the outputs of autonomous computation.</p>
+<p>Treating these outputs as temporary files or application data fails to scale to environments where agents collaborate across machines, workflows span extended time horizons, and computational results must be reused.</p>
+<p>Agent Artifact Availability (AAA) defines the reliability property required to support such systems.</p>
+<p>By ensuring that artifacts remain retrievable, verifiable, and reusable across time and execution environments, AAA allows the results of autonomous computation to persist beyond the processes that originally produced them.</p>
+<p>In this way, computational ecosystems gain the ability not merely to perform work, but to preserve and extend the results of prior computation.</p>
+<p>Preserving artifacts therefore becomes the foundation for systems capable of accumulating computational work over time.</p>
+<hr>
+<h2>Discussion and Feedback</h2>
+<p>The ideas presented in this document are part of an ongoing exploration of architectural requirements for agent-based computational systems.</p>
+<p>Comments, critiques, and alternative perspectives are encouraged.</p>
+<p>Feedback may be submitted through issues or discussions within this repository.</p>
+<p>Future notes in this series explore artifacts as units of computational work, artifact graphs, why traditional storage systems fail to preserve them, the Artifact Availability Layer, deterministic artifact identity, and the principle of Computational Work Conservation.</p>
+<hr>
+<h2>License</h2>
+<p>This document is released under the <strong>Creative Commons Attribution 4.0 International License (CC BY 4.0)</strong>.</p>
+<p>You are free to share and adapt the material for any purpose, provided appropriate attribution is given.</p>
+<p>Full license text: <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></p>
+<hr>
+<h2>Citation</h2>
+<p>If referencing this work, please cite:</p>
+<p>Kopcho, Rich. <em>Agent Artifact Availability (AAA).</em><br>Agent Artifact Availability (AAA) Series. Technical Note, March 2026.</p>
+</div> <div class="paper-nav" data-astro-cid-sihaixxr>  <a href="/framework/02-artifacts-as-units-of-work/" class="next" data-astro-cid-sihaixxr>Artifacts as Units of Computational Work →</a> </div> <div class="citation-block" data-astro-cid-sihaixxr> <h2 data-astro-cid-sihaixxr>Cite This Work</h2> <p class="citation-apa" data-astro-cid-sihaixxr>Kopcho, R. (2026). <em data-astro-cid-sihaixxr>Agent Artifact Availability (AAA)</em>. Agent Artifact Availability (AAA) Framework, Technical Note 01. Cumulative Computing. <a href="https://cumulativecomputing.org/framework/01-agent-artifact-availability/" data-astro-cid-sihaixxr>https://cumulativecomputing.org/framework/01-agent-artifact-availability/</a></p> <details data-astro-cid-sihaixxr> <summary data-astro-cid-sihaixxr>BibTeX</summary> <div class="bibtex-wrapper" data-astro-cid-sihaixxr> <button class="copy-btn" onclick="copyBibtex(this)" data-astro-cid-sihaixxr>Copy</button> <pre data-astro-cid-sihaixxr><code data-astro-cid-sihaixxr>@techreport{kopcho2026aaa01,
+  author    = {Kopcho, Rich},
+  title     = {Agent Artifact Availability (AAA)},
+  series    = {Agent Artifact Availability (AAA) Framework},
+  type      = {Technical Note},
+  number    = {01},
+  year      = {2026},
+  month     = {march},
+  url       = {https://cumulativecomputing.org/framework/01-agent-artifact-availability/},
+  note      = {Source: https://github.com/kopcho/AAA},
+  license   = {CC BY 4.0}
+}</code></pre> </div> </details> <p class="citation-more" data-astro-cid-sihaixxr><a href="/cite/" data-astro-cid-sihaixxr>All citation formats →</a></p> </div>    </main> <footer> <p>© 2026 Rich Kopcho · <a href="https://github.com/kopcho/AAA">github.com/kopcho/AAA</a> · CC BY 4.0</p> <p style="margin-top:0.5rem;">Investor inquiries: <a href="mailto:rich@cumulativecomputing.org">rich@cumulativecomputing.org</a></p> </footer> </body></html>

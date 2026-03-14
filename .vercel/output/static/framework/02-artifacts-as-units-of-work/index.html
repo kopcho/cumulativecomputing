@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Artifacts as Units of Computational Work — Cumulative Computing</title><meta name="description" content="Establishes that computational artifacts are first-class objects representing completed computational work."><meta name="robots" content="index, follow"><meta name="author" content="Rich Kopcho"><meta name="keywords" content="cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, Artifacts as Units of Computational Work"><!-- Open Graph --><meta property="og:title" content="Artifacts as Units of Computational Work — Cumulative Computing"><meta property="og:description" content="Establishes that computational artifacts are first-class objects representing completed computational work."><meta property="og:url" content="https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/"><meta property="og:type" content="article"><meta property="og:site_name" content="Cumulative Computing"><meta property="article:author" content="https://github.com/kopcho"><meta property="article:published_time" content="2026-03-01"><!-- Academic citation tags (Google Scholar, Semantic Scholar) --><meta name="citation_title" content="Artifacts as Units of Computational Work"><meta name="citation_author" content="Kopcho, Rich"><meta name="citation_publication_date" content="2026/03"><meta name="citation_online_date" content="2026/03/01"><meta name="citation_language" content="en"><meta name="citation_fulltext_html_url" content="https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/"><meta name="citation_abstract_html_url" content="https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/"><link rel="canonical" href="https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/"><link rel="me" href="https://github.com/kopcho"><link rel="license" href="https://creativecommons.org/licenses/by/4.0/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"Artifacts as Units of Computational Work","headline":"Artifacts as Units of Computational Work","description":"Establishes that computational artifacts are first-class objects representing completed computational work.","abstract":"Establishes that computational artifacts are first-class objects representing completed computational work.","author":{"@type":"Person","name":"Rich Kopcho","url":"https://github.com/kopcho"},"publisher":{"@type":"Organization","name":"Cumulative Computing","url":"https://cumulativecomputing.org"},"datePublished":"2026-03-01","dateModified":"2026-03-01","license":"https://creativecommons.org/licenses/by/4.0/","inLanguage":"en","keywords":"cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, Artifacts as Units of Computational Work","url":"https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/","sameAs":["https://github.com/kopcho/AAA/blob/main/02_artifacts_as_units_of_computational_work.md","https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/"],"isPartOf":{"@type":"CreativeWorkSeries","name":"Agent Artifact Availability (AAA) Framework","url":"https://github.com/kopcho/AAA"},"position":2},{"@context":"https://schema.org","@type":"Person","name":"Rich Kopcho","url":"https://github.com/kopcho","sameAs":["https://github.com/kopcho","https://cumulativecomputing.org"]}]</script><style>*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}:root{--bg: #fafaf8;--bg2: #f0efe9;--text: #1a1a1a;--text-muted: #666;--accent: #2a4db5;--accent-high: #1a3a9e;--border: #ddddd8;--font-body: Georgia, "Times New Roman", serif;--font-mono: "IBM Plex Mono", "Courier New", monospace}html{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:18px;line-height:1.7}body{min-height:100vh;display:flex;flex-direction:column}a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}a:hover{color:var(--accent-high)}nav{border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:.875rem}nav a{text-decoration:none}nav .site-name{color:var(--text);font-weight:500;letter-spacing:.02em}nav .site-name:hover{color:var(--accent)}nav .nav-links{display:flex;gap:1.5rem;align-items:center}nav .nav-links a{color:var(--text-muted)}nav .nav-links a:hover{color:var(--text)}main{flex:1;max-width:760px;margin:0 auto;padding:3rem 2rem 6rem;width:100%}footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted)}footer a{color:var(--text-muted)}footer a:hover{color:var(--text)}h1{font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:1rem;color:var(--text);letter-spacing:-.02em}h2{font-size:1.4rem;font-weight:700;margin:2.5rem 0 .75rem;color:var(--text)}h3{font-size:1.1rem;font-weight:700;margin:2rem 0 .5rem;color:var(--text)}p{margin-bottom:1.25rem}ul,ol{margin:0 0 1.25rem 1.5rem}li{margin-bottom:.4rem}blockquote{border-left:3px solid var(--accent);padding:.75rem 1.25rem;margin:1.5rem 0;background:var(--bg2);border-radius:0 4px 4px 0;font-style:italic;color:var(--text-muted)}code{font-family:var(--font-mono);font-size:.85em;background:var(--bg2);padding:.15em .4em;border-radius:3px;color:var(--text)}pre{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem;overflow-x:auto;margin:1.5rem 0}pre code{background:none;padding:0;color:var(--text)}hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9rem}th,td{border:1px solid var(--border);padding:.6rem .875rem;text-align:left}th{background:var(--bg2);color:var(--text);font-family:var(--font-mono);font-weight:500}strong{color:var(--text);font-weight:700}.byline{font-family:var(--font-mono);font-size:.8rem;color:var(--text-muted);margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}.byline a{color:var(--text-muted);text-decoration:none}.byline a:hover{color:var(--accent)}.paper-nav{display:flex;justify-content:space-between;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.8rem;gap:1rem}.paper-nav a{color:var(--text-muted);text-decoration:none;max-width:45%}.paper-nav a:hover{color:var(--accent)}.paper-nav .next{text-align:right;margin-left:auto}@media(max-width:600px){main{padding:2rem 1.25rem 4rem}nav{padding:.875rem 1.25rem}h1{font-size:1.5rem}}
+.citation-block[data-astro-cid-sihaixxr]{margin-top:4rem;padding:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px}.citation-block[data-astro-cid-sihaixxr] h2[data-astro-cid-sihaixxr]{font-size:1rem;font-family:var(--font-mono);color:var(--text-muted);margin:0 0 1rem;text-transform:uppercase;letter-spacing:.08em}.citation-apa[data-astro-cid-sihaixxr]{font-size:.9rem;line-height:1.6;color:var(--text);margin-bottom:1rem}.citation-block[data-astro-cid-sihaixxr] details[data-astro-cid-sihaixxr]{margin:1rem 0}.citation-block[data-astro-cid-sihaixxr] summary[data-astro-cid-sihaixxr]{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);cursor:pointer;margin-bottom:.75rem}.citation-block[data-astro-cid-sihaixxr] summary[data-astro-cid-sihaixxr]:hover{color:var(--accent-high)}.citation-block[data-astro-cid-sihaixxr] pre[data-astro-cid-sihaixxr]{margin:0;font-size:.78rem}.citation-more[data-astro-cid-sihaixxr]{font-family:var(--font-mono);font-size:.78rem;margin:.75rem 0 0}.bibtex-wrapper[data-astro-cid-sihaixxr]{position:relative}.copy-btn[data-astro-cid-sihaixxr]{position:absolute;top:.6rem;right:.6rem;font-family:var(--font-mono);font-size:.72rem;padding:.25rem .6rem;background:var(--bg);color:var(--accent);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all .15s ease}.copy-btn[data-astro-cid-sihaixxr]:hover{border-color:var(--accent);color:var(--accent-high)}.copy-btn[data-astro-cid-sihaixxr].copied{color:#6fcf97;border-color:#6fcf97}
+</style></head> <body> <nav> <a href="/" class="site-name">Cumulative Computing</a> <div class="nav-links"> <a href="/framework/">Framework</a> <a href="/cite/">Cite</a> <a href="/interest/">Get Involved</a> <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">GitHub ↗</a> </div> </nav> <main>  <h1 data-astro-cid-sihaixxr>Artifacts as Units of Computational Work</h1> <div class="byline" data-astro-cid-sihaixxr> <span data-astro-cid-sihaixxr>Rich Kopcho</span> <span data-astro-cid-sihaixxr>March 2026</span> <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener" data-astro-cid-sihaixxr>View on GitHub ↗</a> <span data-astro-cid-sihaixxr>CC BY 4.0</span> </div> <div class="paper-content" data-astro-cid-sihaixxr><p><strong>Author:</strong> Rich Kopcho<br><strong>Date:</strong> March 2026<br><strong>Status:</strong> Technical Note<br><strong>Series:</strong> Agent Artifact Availability (AAA)</p>
+<hr>
+<h2>Abstract</h2>
+<p>When one computational process produces output that another process consumes, something more than data flows between them. Each output carries the work required to produce it — making it not merely application data, but a <strong>computational artifact</strong> with identity, dependencies, and reuse properties.</p>
+<p>In agent-based ecosystems, these artifacts form chains of computation where the result of one process becomes the input to another.</p>
+<p>Traditional software architectures represent such outputs as files or application data tied to specific execution environments. However, this representation fails to capture the role these outputs play within distributed computational workflows.</p>
+<p>This document argues that such outputs should be understood as <strong>computational artifacts</strong>: first-class computational objects possessing identity, dependencies, and reuse properties. Artifacts naturally form <strong>artifact graphs</strong>, where nodes represent the results of computation and edges represent dependency relationships between artifacts.</p>
+<p>Understanding artifacts as computational objects provides the conceptual foundation necessary to reason about artifact reuse, artifact persistence, and the preservation of computational work in agent ecosystems.</p>
+<p>Artifacts therefore function as durable units of completed computational work within distributed computational systems.</p>
+<hr>
+<h2>Definition: Computational Artifact</h2>
+<p>A <strong>computational artifact</strong> is the durable output of a completed computational process that may be referenced, verified, and reused independently of the process that produced it.</p>
+<p>A computational artifact possesses four fundamental properties:</p>
+<ul>
+<li><strong>Identity</strong> — the artifact possesses a stable identity that can be uniquely referenced</li>
+<li><strong>Derivation</strong> — the artifact may depend on prior artifacts</li>
+<li><strong>Reusability</strong> — the artifact may serve as input to subsequent computation</li>
+<li><strong>Persistence</strong> — the artifact can exist beyond the lifetime of the process that created it</li>
+</ul>
+<p>Computational artifacts therefore function as <strong>first-class objects within computational systems</strong>, representing reusable units of completed computational work.</p>
+<hr>
+<h2>1. System Observation</h2>
+<p>Autonomous computational systems increasingly perform tasks whose outputs become inputs to subsequent computation.</p>
+<p>Examples include:</p>
+<ul>
+<li>datasets generated by data collection agents  </li>
+<li>research summaries produced by analytical agents  </li>
+<li>reports generated from intermediate analysis  </li>
+<li>knowledge structures derived from prior computation</li>
+</ul>
+<p>These outputs rarely exist in isolation. Instead, they form <strong>chains of computation</strong>.</p>
+<p>Example workflow:</p>
+<ul>
+<li>data collection produces a <strong>dataset</strong></li>
+<li>the dataset is used for <strong>analysis</strong></li>
+<li>the analysis produces a <strong>report</strong></li>
+<li>the report produces a <strong>summary</strong></li>
+</ul>
+<p>Each stage produces a new artifact derived from prior artifacts.</p>
+<hr>
+<h2>2. Artifacts vs Files</h2>
+<p>Traditional systems represent computational output as files.</p>
+<p>Files are primarily designed for:</p>
+<ul>
+<li>human readability  </li>
+<li>document storage  </li>
+<li>application persistence</li>
+</ul>
+<p>Files are referenced using <strong>location-based identifiers</strong>, such as filesystem paths or storage addresses.</p>
+<p>This model introduces several limitations when applied to computational workflows:</p>
+<ul>
+<li>files do not encode computational dependencies  </li>
+<li>files are tightly coupled to storage locations  </li>
+<li>files lack intrinsic identity  </li>
+<li>files provide limited support for computational reuse</li>
+</ul>
+<p>As a result, files poorly represent outputs that participate in multi-stage computational workflows.</p>
+<p>Artifacts provide a more suitable abstraction.</p>
+<hr>
+<h2>3. Artifact Identity</h2>
+<p>A computational artifact must possess a <strong>stable identity</strong> that allows it to be referenced across systems and workflows.</p>
+<p>Unlike files, which are identified by location, artifacts benefit from identity derived from the computation that produced them.</p>
+<p>This allows an artifact to be referenced independently of where it is stored or retrieved.</p>
+<p>Later notes formalize this concept as <strong>deterministic artifact identity</strong>.</p>
+<p>Stable artifact identity enables:</p>
+<ul>
+<li>cross-agent artifact references  </li>
+<li>reproducible workflows  </li>
+<li>verification of artifact integrity  </li>
+<li>reuse of computational results</li>
+</ul>
+<p>Identity transforms artifacts from passive storage objects into active participants in computational systems.</p>
+<hr>
+<h2>4. Artifact Dependencies</h2>
+<p>Artifacts rarely exist independently.</p>
+<p>Most artifacts are derived from prior artifacts.</p>
+<p>Examples include:</p>
+<ul>
+<li>an analysis derived from a dataset  </li>
+<li>a report derived from analytical results  </li>
+<li>a model trained from training data</li>
+</ul>
+<p>These relationships represent <strong>computational dependencies</strong>.</p>
+<p>A dependency relationship indicates that the creation of one artifact relied upon another artifact.</p>
+<p>Capturing these relationships allows systems to understand how computational results are connected.</p>
+<hr>
+<h2>5. Artifact Graphs</h2>
+<p>When artifacts and their dependencies are represented explicitly, they form <strong>artifact graphs</strong>.</p>
+<p>In an artifact graph:</p>
+<ul>
+<li><strong>nodes</strong> represent artifacts  </li>
+<li><strong>edges</strong> represent dependency relationships</li>
+</ul>
+<p>Example artifact graph:</p>
+<ul>
+<li><strong>dataset</strong><ul>
+<li>dependency for <strong>analysis</strong><ul>
+<li>dependency for <strong>report</strong><ul>
+<li>dependency for <strong>summary</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Artifact graphs capture the structure of computational workflows.</p>
+<p>They describe how results were produced and how artifacts relate to one another.</p>
+<p>Artifact graphs therefore provide a structural representation of computation itself.</p>
+<hr>
+<h2>6. Artifacts as Units of Computational Work</h2>
+<p>Each artifact represents the result of completed computational effort.</p>
+<p>When an agent performs analysis, collects data, or synthesizes knowledge, the resulting artifact encapsulates the work required to produce that result.</p>
+<p>Artifacts therefore represent <strong>units of computational work</strong>.</p>
+<p>Preserving artifacts preserves the work performed by computational systems.</p>
+<p>When artifacts disappear, the system must recompute the work required to reproduce them.</p>
+<p>As agent ecosystems scale, preserving computational work becomes increasingly important.</p>
+<hr>
+<h2>7. Artifact Graph Axiom</h2>
+<p>The structure of artifact relationships leads to a fundamental observation.</p>
+<p><strong>Artifact Graph Axiom</strong></p>
+<blockquote>
+<p>Any non-trivial computational system produces artifacts whose derivation relationships form a directed graph of computational work.</p>
+</blockquote>
+<p>In such systems:</p>
+<ul>
+<li>nodes represent the results of computation  </li>
+<li>edges represent derivation relationships between artifacts</li>
+</ul>
+<p>As computational systems evolve toward distributed networks of autonomous agents, artifact graphs become larger, deeper, and more interconnected.</p>
+<p>If artifacts disappear, the structure of this graph collapses.</p>
+<p>The loss of artifacts therefore destroys portions of the computational graph itself.</p>
+<p>Preserving artifact graphs becomes necessary for maintaining the integrity of computational workflows.</p>
+<hr>
+<h2>8. Implications for Agent Systems</h2>
+<p>Treating artifacts as computational objects leads to several architectural implications.</p>
+<h3>Artifact Reuse</h3>
+<p>Artifacts can be reused across workflows without recomputation.</p>
+<h3>Workflow Transparency</h3>
+<p>Artifact graphs reveal how results were produced.</p>
+<h3>Computational Efficiency</h3>
+<p>Preserving artifacts avoids repeated computation.</p>
+<h3>System Coordination</h3>
+<p>Agents can coordinate work by referencing shared artifacts.</p>
+<p>These properties enable more efficient and reliable multi-agent ecosystems.</p>
+<hr>
+<h2>Conclusion</h2>
+<p>As computational systems evolve toward ecosystems of interacting autonomous agents, the outputs of computation increasingly function as reusable components of larger workflows.</p>
+<p>Traditional file-based abstractions fail to capture the identity, dependencies, and reuse properties required for these outputs.</p>
+<p>Treating artifacts as <strong>first-class computational objects</strong> provides a conceptual model that better reflects the structure of agent-based computation.</p>
+<p>Artifacts form nodes within <strong>artifact graphs</strong> representing units of work produced by autonomous systems.</p>
+<p>Preserving these graphs preserves the computational work performed by those systems. When artifacts disappear, portions of this work are lost and must be recomputed.</p>
+<p>Treating artifacts as first-class computational objects therefore provides the conceptual foundation necessary for understanding the need for <strong>Agent Artifact Availability (AAA)</strong>.</p>
+<hr>
+<h2>Discussion and Feedback</h2>
+<p>The ideas presented in this document are part of an ongoing exploration of architectural requirements for agent-based computational systems.</p>
+<p>Comments, critiques, and alternative perspectives are encouraged.</p>
+<p>Feedback may be submitted through issues or discussions within this repository.</p>
+<p>Future notes in this series explore artifact graphs, why traditional storage systems fail to preserve them, the Artifact Availability Layer, deterministic artifact identity, and the principle of Computational Work Conservation.</p>
+<hr>
+<h2>Citation</h2>
+<p>If referencing this work, please cite:</p>
+<p>Kopcho, Rich. <em>Artifacts as Units of Computational Work.</em><br>Agent Artifact Availability (AAA) Series. Technical Note, March 2026.</p>
+</div> <div class="paper-nav" data-astro-cid-sihaixxr> <a href="/framework/01-agent-artifact-availability/" data-astro-cid-sihaixxr>← Agent Artifact Availability (AAA)</a> <a href="/framework/03-artifact-graphs/" class="next" data-astro-cid-sihaixxr>Artifact Graphs and the Preservation of Computational Work →</a> </div> <div class="citation-block" data-astro-cid-sihaixxr> <h2 data-astro-cid-sihaixxr>Cite This Work</h2> <p class="citation-apa" data-astro-cid-sihaixxr>Kopcho, R. (2026). <em data-astro-cid-sihaixxr>Artifacts as Units of Computational Work</em>. Agent Artifact Availability (AAA) Framework, Technical Note 02. Cumulative Computing. <a href="https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/" data-astro-cid-sihaixxr>https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/</a></p> <details data-astro-cid-sihaixxr> <summary data-astro-cid-sihaixxr>BibTeX</summary> <div class="bibtex-wrapper" data-astro-cid-sihaixxr> <button class="copy-btn" onclick="copyBibtex(this)" data-astro-cid-sihaixxr>Copy</button> <pre data-astro-cid-sihaixxr><code data-astro-cid-sihaixxr>@techreport{kopcho2026aaa02,
+  author    = {Kopcho, Rich},
+  title     = {Artifacts as Units of Computational Work},
+  series    = {Agent Artifact Availability (AAA) Framework},
+  type      = {Technical Note},
+  number    = {02},
+  year      = {2026},
+  month     = {march},
+  url       = {https://cumulativecomputing.org/framework/02-artifacts-as-units-of-work/},
+  note      = {Source: https://github.com/kopcho/AAA},
+  license   = {CC BY 4.0}
+}</code></pre> </div> </details> <p class="citation-more" data-astro-cid-sihaixxr><a href="/cite/" data-astro-cid-sihaixxr>All citation formats →</a></p> </div>    </main> <footer> <p>© 2026 Rich Kopcho · <a href="https://github.com/kopcho/AAA">github.com/kopcho/AAA</a> · CC BY 4.0</p> <p style="margin-top:0.5rem;">Investor inquiries: <a href="mailto:rich@cumulativecomputing.org">rich@cumulativecomputing.org</a></p> </footer> </body></html>

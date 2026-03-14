@@ -1,0 +1,85 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/framework/01$",
+			"headers": {
+				"Location": "/framework/01-agent-artifact-availability"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/framework/02$",
+			"headers": {
+				"Location": "/framework/02-artifacts-as-units-of-work"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/framework/03$",
+			"headers": {
+				"Location": "/framework/03-artifact-graphs"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/framework/04$",
+			"headers": {
+				"Location": "/framework/04-why-storage-systems-fail"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/framework/05$",
+			"headers": {
+				"Location": "/framework/05-artifact-availability-layer"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/framework/06$",
+			"headers": {
+				"Location": "/framework/06-deterministic-artifact-identity"
+			},
+			"status": 301
+		},
+		{
+			"src": "^/framework/07$",
+			"headers": {
+				"Location": "/framework/07-computational-work-conservation"
+			},
+			"status": 301
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"src": "^/_server-islands/([^/]+?)/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/_image/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/api/interest/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/404/?$",
+			"dest": "_render"
+		},
+		{
+			"src": "^/.*$",
+			"dest": "_render",
+			"status": 404
+		}
+	]
+}

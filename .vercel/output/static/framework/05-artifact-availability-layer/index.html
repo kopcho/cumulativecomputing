@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Artifact Availability Layer — Cumulative Computing</title><meta name="description" content="Introduces the Artifact Availability Layer as the infrastructure required to preserve computational work."><meta name="robots" content="index, follow"><meta name="author" content="Rich Kopcho"><meta name="keywords" content="cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, The Artifact Availability Layer"><!-- Open Graph --><meta property="og:title" content="The Artifact Availability Layer — Cumulative Computing"><meta property="og:description" content="Introduces the Artifact Availability Layer as the infrastructure required to preserve computational work."><meta property="og:url" content="https://cumulativecomputing.org/framework/05-artifact-availability-layer/"><meta property="og:type" content="article"><meta property="og:site_name" content="Cumulative Computing"><meta property="article:author" content="https://github.com/kopcho"><meta property="article:published_time" content="2026-03-01"><!-- Academic citation tags (Google Scholar, Semantic Scholar) --><meta name="citation_title" content="The Artifact Availability Layer"><meta name="citation_author" content="Kopcho, Rich"><meta name="citation_publication_date" content="2026/03"><meta name="citation_online_date" content="2026/03/01"><meta name="citation_language" content="en"><meta name="citation_fulltext_html_url" content="https://cumulativecomputing.org/framework/05-artifact-availability-layer/"><meta name="citation_abstract_html_url" content="https://cumulativecomputing.org/framework/05-artifact-availability-layer/"><link rel="canonical" href="https://cumulativecomputing.org/framework/05-artifact-availability-layer/"><link rel="me" href="https://github.com/kopcho"><link rel="license" href="https://creativecommons.org/licenses/by/4.0/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"The Artifact Availability Layer","headline":"The Artifact Availability Layer","description":"Introduces the Artifact Availability Layer as the infrastructure required to preserve computational work.","abstract":"Introduces the Artifact Availability Layer as the infrastructure required to preserve computational work.","author":{"@type":"Person","name":"Rich Kopcho","url":"https://github.com/kopcho"},"publisher":{"@type":"Organization","name":"Cumulative Computing","url":"https://cumulativecomputing.org"},"datePublished":"2026-03-01","dateModified":"2026-03-01","license":"https://creativecommons.org/licenses/by/4.0/","inLanguage":"en","keywords":"cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, The Artifact Availability Layer","url":"https://cumulativecomputing.org/framework/05-artifact-availability-layer/","sameAs":["https://github.com/kopcho/AAA/blob/main/05_artifact_availability_layer.md","https://cumulativecomputing.org/framework/05-artifact-availability-layer/"],"isPartOf":{"@type":"CreativeWorkSeries","name":"Agent Artifact Availability (AAA) Framework","url":"https://github.com/kopcho/AAA"},"position":5},{"@context":"https://schema.org","@type":"Person","name":"Rich Kopcho","url":"https://github.com/kopcho","sameAs":["https://github.com/kopcho","https://cumulativecomputing.org"]}]</script><style>*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}:root{--bg: #fafaf8;--bg2: #f0efe9;--text: #1a1a1a;--text-muted: #666;--accent: #2a4db5;--accent-high: #1a3a9e;--border: #ddddd8;--font-body: Georgia, "Times New Roman", serif;--font-mono: "IBM Plex Mono", "Courier New", monospace}html{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:18px;line-height:1.7}body{min-height:100vh;display:flex;flex-direction:column}a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}a:hover{color:var(--accent-high)}nav{border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:.875rem}nav a{text-decoration:none}nav .site-name{color:var(--text);font-weight:500;letter-spacing:.02em}nav .site-name:hover{color:var(--accent)}nav .nav-links{display:flex;gap:1.5rem;align-items:center}nav .nav-links a{color:var(--text-muted)}nav .nav-links a:hover{color:var(--text)}main{flex:1;max-width:760px;margin:0 auto;padding:3rem 2rem 6rem;width:100%}footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted)}footer a{color:var(--text-muted)}footer a:hover{color:var(--text)}h1{font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:1rem;color:var(--text);letter-spacing:-.02em}h2{font-size:1.4rem;font-weight:700;margin:2.5rem 0 .75rem;color:var(--text)}h3{font-size:1.1rem;font-weight:700;margin:2rem 0 .5rem;color:var(--text)}p{margin-bottom:1.25rem}ul,ol{margin:0 0 1.25rem 1.5rem}li{margin-bottom:.4rem}blockquote{border-left:3px solid var(--accent);padding:.75rem 1.25rem;margin:1.5rem 0;background:var(--bg2);border-radius:0 4px 4px 0;font-style:italic;color:var(--text-muted)}code{font-family:var(--font-mono);font-size:.85em;background:var(--bg2);padding:.15em .4em;border-radius:3px;color:var(--text)}pre{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem;overflow-x:auto;margin:1.5rem 0}pre code{background:none;padding:0;color:var(--text)}hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9rem}th,td{border:1px solid var(--border);padding:.6rem .875rem;text-align:left}th{background:var(--bg2);color:var(--text);font-family:var(--font-mono);font-weight:500}strong{color:var(--text);font-weight:700}.byline{font-family:var(--font-mono);font-size:.8rem;color:var(--text-muted);margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}.byline a{color:var(--text-muted);text-decoration:none}.byline a:hover{color:var(--accent)}.paper-nav{display:flex;justify-content:space-between;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.8rem;gap:1rem}.paper-nav a{color:var(--text-muted);text-decoration:none;max-width:45%}.paper-nav a:hover{color:var(--accent)}.paper-nav .next{text-align:right;margin-left:auto}@media(max-width:600px){main{padding:2rem 1.25rem 4rem}nav{padding:.875rem 1.25rem}h1{font-size:1.5rem}}
+.citation-block[data-astro-cid-sihaixxr]{margin-top:4rem;padding:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px}.citation-block[data-astro-cid-sihaixxr] h2[data-astro-cid-sihaixxr]{font-size:1rem;font-family:var(--font-mono);color:var(--text-muted);margin:0 0 1rem;text-transform:uppercase;letter-spacing:.08em}.citation-apa[data-astro-cid-sihaixxr]{font-size:.9rem;line-height:1.6;color:var(--text);margin-bottom:1rem}.citation-block[data-astro-cid-sihaixxr] details[data-astro-cid-sihaixxr]{margin:1rem 0}.citation-block[data-astro-cid-sihaixxr] summary[data-astro-cid-sihaixxr]{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);cursor:pointer;margin-bottom:.75rem}.citation-block[data-astro-cid-sihaixxr] summary[data-astro-cid-sihaixxr]:hover{color:var(--accent-high)}.citation-block[data-astro-cid-sihaixxr] pre[data-astro-cid-sihaixxr]{margin:0;font-size:.78rem}.citation-more[data-astro-cid-sihaixxr]{font-family:var(--font-mono);font-size:.78rem;margin:.75rem 0 0}.bibtex-wrapper[data-astro-cid-sihaixxr]{position:relative}.copy-btn[data-astro-cid-sihaixxr]{position:absolute;top:.6rem;right:.6rem;font-family:var(--font-mono);font-size:.72rem;padding:.25rem .6rem;background:var(--bg);color:var(--accent);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all .15s ease}.copy-btn[data-astro-cid-sihaixxr]:hover{border-color:var(--accent);color:var(--accent-high)}.copy-btn[data-astro-cid-sihaixxr].copied{color:#6fcf97;border-color:#6fcf97}
+</style></head> <body> <nav> <a href="/" class="site-name">Cumulative Computing</a> <div class="nav-links"> <a href="/framework/">Framework</a> <a href="/cite/">Cite</a> <a href="/interest/">Get Involved</a> <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">GitHub ↗</a> </div> </nav> <main>  <h1 data-astro-cid-sihaixxr>The Artifact Availability Layer</h1> <div class="byline" data-astro-cid-sihaixxr> <span data-astro-cid-sihaixxr>Rich Kopcho</span> <span data-astro-cid-sihaixxr>March 2026</span> <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener" data-astro-cid-sihaixxr>View on GitHub ↗</a> <span data-astro-cid-sihaixxr>CC BY 4.0</span> </div> <div class="paper-content" data-astro-cid-sihaixxr><p><strong>Author:</strong> Rich Kopcho<br><strong>Date:</strong> March 2026<br><strong>Status:</strong> Technical Note<br><strong>Series:</strong> Agent Artifact Availability (AAA)</p>
+<hr>
+<h2>Abstract</h2>
+<p>Previous notes established that artifact graphs represent the structure of computational work and that traditional storage systems fail to preserve these structures. Autonomous computational systems therefore require infrastructure designed specifically to maintain artifact availability.</p>
+<p>This document introduces the <strong>Artifact Availability Layer</strong>, a new architectural layer responsible for preserving artifact identity, derivation relationships, and accessibility across distributed computational environments.</p>
+<p>More fundamentally, this layer reflects a shift in how computing infrastructure must evolve: systems must begin preserving <strong>computational work itself</strong>, not merely the data produced by computation.</p>
+<hr>
+<h2>Opening Statement</h2>
+<p>Traditional infrastructure preserves <strong>data</strong>.</p>
+<p>Autonomous computational systems must preserve <strong>computational work</strong>.</p>
+<p>The Artifact Availability Layer is the infrastructure required to make this possible.</p>
+<hr>
+<h2>Persistence of Computational Work</h2>
+<p>Computational systems do not persist through the preservation of running processes.</p>
+<p>Processes terminate.
+Machines shut down.
+Execution environments disappear.</p>
+<p>What persists across time are the <strong>artifacts produced by computation</strong>.</p>
+<p>This leads to a fundamental observation:</p>
+<blockquote>
+<p>Computational work that is not preserved through durable artifacts cannot persist beyond the execution of the system that produced it.</p>
+</blockquote>
+<p>The persistence of computation depends entirely on the persistence of artifacts.</p>
+<p>Without durable artifacts, completed computational work disappears as soon as the systems that produced it terminate.</p>
+<hr>
+<h2>From Data Persistence to Work Persistence</h2>
+<p>Traditional computing infrastructure evolved to solve the problem of <strong>data persistence</strong>.</p>
+<p>Filesystems enabled persistent documents.<br>Databases enabled persistent application state.<br>Object storage enabled durable cloud-scale data.</p>
+<p>These systems successfully preserve <strong>data objects</strong>.</p>
+<p>However, agent ecosystems reveal a deeper requirement.</p>
+<p>Autonomous systems continuously produce artifacts representing:</p>
+<ul>
+<li>generated knowledge</li>
+<li>derived analyses</li>
+<li>intermediate reasoning states</li>
+<li>synthesized outputs</li>
+<li>transformed computational results</li>
+</ul>
+<p>These artifacts are not merely application data.</p>
+<p>They are the <strong>products of computation itself</strong>.</p>
+<p>Preserving artifacts therefore becomes equivalent to preserving the <strong>work performed to produce them</strong>.</p>
+<hr>
+<h2>Artifacts as Infrastructure Objects</h2>
+<p>When computational systems operate at large scale, artifacts become more than stored outputs.</p>
+<p>They become <strong>infrastructure objects</strong>.</p>
+<p>Artifacts possess properties that distinguish them from conventional stored data:</p>
+<ul>
+<li>they represent completed computation  </li>
+<li>they participate in derivation relationships  </li>
+<li>they serve as inputs to future computation  </li>
+<li>they form dependency graphs across workflows</li>
+</ul>
+<p>Taken together, these properties mean that artifacts function as nodes within a system-wide graph of computational work.</p>
+<p>Treating artifacts as disposable data ignores their structural role in computation.</p>
+<hr>
+<h2>The Artifact Availability Layer</h2>
+<p>The Artifact Availability Layer is responsible for managing artifacts as first-class infrastructure objects.</p>
+<p>This layer provides mechanisms for:</p>
+<ul>
+<li>artifact identity  </li>
+<li>artifact discovery  </li>
+<li>artifact retrieval  </li>
+<li>artifact verification  </li>
+<li>preservation of artifact derivation relationships</li>
+</ul>
+<p>In effect, the layer preserves the <strong>artifact graph of a computational ecosystem</strong>.</p>
+<p>Rather than storing isolated data objects, the layer maintains the structure through which computational work accumulates across agents and workflows.</p>
+<hr>
+<h2>Infrastructure for Computational Work</h2>
+<p>Throughout the history of computing, new infrastructure layers emerged when computing paradigms changed.</p>
+<p>Filesystems enabled persistent documents.</p>
+<p>Databases enabled persistent application state.</p>
+<p>Distributed storage enabled cloud-scale services.</p>
+<p>Agent ecosystems introduce another transition.</p>
+<p>Computational systems now produce vast networks of derived artifacts representing accumulated computational work.</p>
+<p>Preserving these networks requires infrastructure designed specifically for that purpose.</p>
+<p>The Artifact Availability Layer represents the emergence of <strong>computational work infrastructure</strong>.</p>
+<hr>
+<h2>Implications for Autonomous Systems</h2>
+<p>Once artifacts are treated as infrastructure objects, the architecture of computational systems changes.</p>
+<p>Agents interact through artifact production and reuse.</p>
+<p>Artifact graphs evolve continuously as systems perform new computation.</p>
+<p>Workflows extend existing artifact graphs rather than recomputing results from scratch.</p>
+<p>In this sense, artifact graphs function as the <strong>historical memory of computational systems</strong>.</p>
+<p>Preserving artifact availability therefore becomes essential to maintaining system continuity.</p>
+<hr>
+<h2>Conclusion</h2>
+<p>Computing infrastructure has historically focused on preserving data.</p>
+<p>The rise of autonomous computational systems introduces a deeper requirement: the preservation of computational work.</p>
+<p>Artifacts represent the results of computation.</p>
+<p>Artifact graphs represent the structure of that work.</p>
+<p>Systems that fail to preserve artifact availability do not merely lose stored objects — they erase completed computation.</p>
+<p>The Artifact Availability Layer therefore represents the infrastructure required for computational work to persist across time.</p>
+<p>Maintaining artifact availability requires mechanisms for identifying and verifying artifacts across distributed systems. The next note explores deterministic artifact identity as the mechanism that makes such systems possible.</p>
+<hr>
+<h2>Discussion and Feedback</h2>
+<p>The ideas presented in this document are part of an ongoing exploration of architectural requirements for agent-based computational systems.</p>
+<p>Comments, critiques, and alternative perspectives are encouraged.</p>
+<p>Feedback may be submitted through issues or discussions within this repository.</p>
+<p>Future notes in this series explore deterministic artifact identity and the principle of Computational Work Conservation.</p>
+<hr>
+<h2>Citation</h2>
+<p>If referencing this work, please cite:</p>
+<p>Kopcho, Rich. <em>The Artifact Availability Layer.</em><br>Agent Artifact Availability (AAA) Series. Technical Note, March 2026.</p>
+</div> <div class="paper-nav" data-astro-cid-sihaixxr> <a href="/framework/04-why-storage-systems-fail/" data-astro-cid-sihaixxr>← Why Storage Systems Lose Computational Work</a> <a href="/framework/06-deterministic-artifact-identity/" class="next" data-astro-cid-sihaixxr>Deterministic Artifact Identity →</a> </div> <div class="citation-block" data-astro-cid-sihaixxr> <h2 data-astro-cid-sihaixxr>Cite This Work</h2> <p class="citation-apa" data-astro-cid-sihaixxr>Kopcho, R. (2026). <em data-astro-cid-sihaixxr>The Artifact Availability Layer</em>. Agent Artifact Availability (AAA) Framework, Technical Note 05. Cumulative Computing. <a href="https://cumulativecomputing.org/framework/05-artifact-availability-layer/" data-astro-cid-sihaixxr>https://cumulativecomputing.org/framework/05-artifact-availability-layer/</a></p> <details data-astro-cid-sihaixxr> <summary data-astro-cid-sihaixxr>BibTeX</summary> <div class="bibtex-wrapper" data-astro-cid-sihaixxr> <button class="copy-btn" onclick="copyBibtex(this)" data-astro-cid-sihaixxr>Copy</button> <pre data-astro-cid-sihaixxr><code data-astro-cid-sihaixxr>@techreport{kopcho2026aaa05,
+  author    = {Kopcho, Rich},
+  title     = {The Artifact Availability Layer},
+  series    = {Agent Artifact Availability (AAA) Framework},
+  type      = {Technical Note},
+  number    = {05},
+  year      = {2026},
+  month     = {march},
+  url       = {https://cumulativecomputing.org/framework/05-artifact-availability-layer/},
+  note      = {Source: https://github.com/kopcho/AAA},
+  license   = {CC BY 4.0}
+}</code></pre> </div> </details> <p class="citation-more" data-astro-cid-sihaixxr><a href="/cite/" data-astro-cid-sihaixxr>All citation formats →</a></p> </div>    </main> <footer> <p>© 2026 Rich Kopcho · <a href="https://github.com/kopcho/AAA">github.com/kopcho/AAA</a> · CC BY 4.0</p> <p style="margin-top:0.5rem;">Investor inquiries: <a href="mailto:rich@cumulativecomputing.org">rich@cumulativecomputing.org</a></p> </footer> </body></html>

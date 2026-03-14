@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Why Storage Systems Lose Computational Work — Cumulative Computing</title><meta name="description" content="Evaluates traditional storage models against artifact graph requirements and demonstrates why none preserve computational work."><meta name="robots" content="index, follow"><meta name="author" content="Rich Kopcho"><meta name="keywords" content="cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, Why Storage Systems Lose Computational Work"><!-- Open Graph --><meta property="og:title" content="Why Storage Systems Lose Computational Work — Cumulative Computing"><meta property="og:description" content="Evaluates traditional storage models against artifact graph requirements and demonstrates why none preserve computational work."><meta property="og:url" content="https://cumulativecomputing.org/framework/04-why-storage-systems-fail/"><meta property="og:type" content="article"><meta property="og:site_name" content="Cumulative Computing"><meta property="article:author" content="https://github.com/kopcho"><meta property="article:published_time" content="2026-03-01"><!-- Academic citation tags (Google Scholar, Semantic Scholar) --><meta name="citation_title" content="Why Storage Systems Lose Computational Work"><meta name="citation_author" content="Kopcho, Rich"><meta name="citation_publication_date" content="2026/03"><meta name="citation_online_date" content="2026/03/01"><meta name="citation_language" content="en"><meta name="citation_fulltext_html_url" content="https://cumulativecomputing.org/framework/04-why-storage-systems-fail/"><meta name="citation_abstract_html_url" content="https://cumulativecomputing.org/framework/04-why-storage-systems-fail/"><link rel="canonical" href="https://cumulativecomputing.org/framework/04-why-storage-systems-fail/"><link rel="me" href="https://github.com/kopcho"><link rel="license" href="https://creativecommons.org/licenses/by/4.0/"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><script type="application/ld+json">[{"@context":"https://schema.org","@type":"ScholarlyArticle","name":"Why Storage Systems Lose Computational Work","headline":"Why Storage Systems Lose Computational Work","description":"Evaluates traditional storage models against artifact graph requirements and demonstrates why none preserve computational work.","abstract":"Evaluates traditional storage models against artifact graph requirements and demonstrates why none preserve computational work.","author":{"@type":"Person","name":"Rich Kopcho","url":"https://github.com/kopcho"},"publisher":{"@type":"Organization","name":"Cumulative Computing","url":"https://cumulativecomputing.org"},"datePublished":"2026-03-01","dateModified":"2026-03-01","license":"https://creativecommons.org/licenses/by/4.0/","inLanguage":"en","keywords":"cumulative computing, artifact availability, AAA framework, computational work, Rich Kopcho, Why Storage Systems Lose Computational Work","url":"https://cumulativecomputing.org/framework/04-why-storage-systems-fail/","sameAs":["https://github.com/kopcho/AAA/blob/main/04_why_storage_systems_lose_computational_work.md","https://cumulativecomputing.org/framework/04-why-storage-systems-fail/"],"isPartOf":{"@type":"CreativeWorkSeries","name":"Agent Artifact Availability (AAA) Framework","url":"https://github.com/kopcho/AAA"},"position":4},{"@context":"https://schema.org","@type":"Person","name":"Rich Kopcho","url":"https://github.com/kopcho","sameAs":["https://github.com/kopcho","https://cumulativecomputing.org"]}]</script><style>*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}:root{--bg: #fafaf8;--bg2: #f0efe9;--text: #1a1a1a;--text-muted: #666;--accent: #2a4db5;--accent-high: #1a3a9e;--border: #ddddd8;--font-body: Georgia, "Times New Roman", serif;--font-mono: "IBM Plex Mono", "Courier New", monospace}html{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:18px;line-height:1.7}body{min-height:100vh;display:flex;flex-direction:column}a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}a:hover{color:var(--accent-high)}nav{border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-mono);font-size:.875rem}nav a{text-decoration:none}nav .site-name{color:var(--text);font-weight:500;letter-spacing:.02em}nav .site-name:hover{color:var(--accent)}nav .nav-links{display:flex;gap:1.5rem;align-items:center}nav .nav-links a{color:var(--text-muted)}nav .nav-links a:hover{color:var(--text)}main{flex:1;max-width:760px;margin:0 auto;padding:3rem 2rem 6rem;width:100%}footer{border-top:1px solid var(--border);padding:2rem;text-align:center;font-family:var(--font-mono);font-size:.75rem;color:var(--text-muted)}footer a{color:var(--text-muted)}footer a:hover{color:var(--text)}h1{font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:1rem;color:var(--text);letter-spacing:-.02em}h2{font-size:1.4rem;font-weight:700;margin:2.5rem 0 .75rem;color:var(--text)}h3{font-size:1.1rem;font-weight:700;margin:2rem 0 .5rem;color:var(--text)}p{margin-bottom:1.25rem}ul,ol{margin:0 0 1.25rem 1.5rem}li{margin-bottom:.4rem}blockquote{border-left:3px solid var(--accent);padding:.75rem 1.25rem;margin:1.5rem 0;background:var(--bg2);border-radius:0 4px 4px 0;font-style:italic;color:var(--text-muted)}code{font-family:var(--font-mono);font-size:.85em;background:var(--bg2);padding:.15em .4em;border-radius:3px;color:var(--text)}pre{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:1.25rem;overflow-x:auto;margin:1.5rem 0}pre code{background:none;padding:0;color:var(--text)}hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}table{width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:.9rem}th,td{border:1px solid var(--border);padding:.6rem .875rem;text-align:left}th{background:var(--bg2);color:var(--text);font-family:var(--font-mono);font-weight:500}strong{color:var(--text);font-weight:700}.byline{font-family:var(--font-mono);font-size:.8rem;color:var(--text-muted);margin-bottom:2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border);display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}.byline a{color:var(--text-muted);text-decoration:none}.byline a:hover{color:var(--accent)}.paper-nav{display:flex;justify-content:space-between;margin-top:4rem;padding-top:2rem;border-top:1px solid var(--border);font-family:var(--font-mono);font-size:.8rem;gap:1rem}.paper-nav a{color:var(--text-muted);text-decoration:none;max-width:45%}.paper-nav a:hover{color:var(--accent)}.paper-nav .next{text-align:right;margin-left:auto}@media(max-width:600px){main{padding:2rem 1.25rem 4rem}nav{padding:.875rem 1.25rem}h1{font-size:1.5rem}}
+.citation-block[data-astro-cid-sihaixxr]{margin-top:4rem;padding:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:8px}.citation-block[data-astro-cid-sihaixxr] h2[data-astro-cid-sihaixxr]{font-size:1rem;font-family:var(--font-mono);color:var(--text-muted);margin:0 0 1rem;text-transform:uppercase;letter-spacing:.08em}.citation-apa[data-astro-cid-sihaixxr]{font-size:.9rem;line-height:1.6;color:var(--text);margin-bottom:1rem}.citation-block[data-astro-cid-sihaixxr] details[data-astro-cid-sihaixxr]{margin:1rem 0}.citation-block[data-astro-cid-sihaixxr] summary[data-astro-cid-sihaixxr]{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);cursor:pointer;margin-bottom:.75rem}.citation-block[data-astro-cid-sihaixxr] summary[data-astro-cid-sihaixxr]:hover{color:var(--accent-high)}.citation-block[data-astro-cid-sihaixxr] pre[data-astro-cid-sihaixxr]{margin:0;font-size:.78rem}.citation-more[data-astro-cid-sihaixxr]{font-family:var(--font-mono);font-size:.78rem;margin:.75rem 0 0}.bibtex-wrapper[data-astro-cid-sihaixxr]{position:relative}.copy-btn[data-astro-cid-sihaixxr]{position:absolute;top:.6rem;right:.6rem;font-family:var(--font-mono);font-size:.72rem;padding:.25rem .6rem;background:var(--bg);color:var(--accent);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all .15s ease}.copy-btn[data-astro-cid-sihaixxr]:hover{border-color:var(--accent);color:var(--accent-high)}.copy-btn[data-astro-cid-sihaixxr].copied{color:#6fcf97;border-color:#6fcf97}
+</style></head> <body> <nav> <a href="/" class="site-name">Cumulative Computing</a> <div class="nav-links"> <a href="/framework/">Framework</a> <a href="/cite/">Cite</a> <a href="/interest/">Get Involved</a> <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">GitHub ↗</a> </div> </nav> <main>  <h1 data-astro-cid-sihaixxr>Why Storage Systems Lose Computational Work</h1> <div class="byline" data-astro-cid-sihaixxr> <span data-astro-cid-sihaixxr>Rich Kopcho</span> <span data-astro-cid-sihaixxr>March 2026</span> <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener" data-astro-cid-sihaixxr>View on GitHub ↗</a> <span data-astro-cid-sihaixxr>CC BY 4.0</span> </div> <div class="paper-content" data-astro-cid-sihaixxr><p><strong>Author:</strong> Rich Kopcho<br><strong>Date:</strong> March 2026<br><strong>Status:</strong> Technical Note<br><strong>Series:</strong> Agent Artifact Availability (AAA)</p>
+<hr>
+<h2>Abstract</h2>
+<p>Modern computational infrastructure focuses on storing data, embeddings, and application state, yet autonomous computational systems ultimately depend on something more fundamental: <strong>the preservation of completed computational work.</strong></p>
+<p>Computational artifacts produced by autonomous systems increasingly form dependency graphs representing accumulated computational work. Preserving these artifact graphs requires that artifacts remain retrievable, verifiable, and reusable across agents, workflows, and time.</p>
+<p>Traditional storage systems—including filesystems, databases, object storage systems, and vector databases—were designed for application data persistence rather than the preservation of artifact graphs.</p>
+<p>This document evaluates these storage paradigms against the requirements implied by artifact graphs and the principle of Computational Work Conservation. The analysis demonstrates that traditional storage systems fail to preserve artifact graphs in distributed agent ecosystems, motivating the need for a distinct architectural layer responsible for artifact availability.</p>
+<hr>
+<h2>1. Storage Systems and Computational Artifacts</h2>
+<p>Traditional storage systems were designed to persist application data.</p>
+<p>Examples include:</p>
+<ul>
+<li>files stored within filesystems</li>
+<li>structured records stored within databases</li>
+<li>objects stored within cloud object storage</li>
+<li>embeddings stored within vector databases</li>
+</ul>
+<p>These systems perform their intended role effectively within conventional software architectures.</p>
+<p>However, the artifact graph model described in previous notes introduces additional requirements. Computational artifacts must remain accessible as nodes within a distributed dependency graph representing accumulated computational work.</p>
+<p>Preserving this structure requires more than simple data persistence.</p>
+<hr>
+<h2>2. Requirements Implied by Artifact Graphs</h2>
+<p>If artifact graphs represent the structure of computational work, storage systems must satisfy several architectural requirements.</p>
+<h3>Stable Artifact Identity</h3>
+<p>Artifacts must possess stable identifiers independent of storage location or application context.</p>
+<h3>Persistent Accessibility</h3>
+<p>Artifacts must remain retrievable across process lifetimes and distributed execution environments.</p>
+<h3>Derivation Relationships</h3>
+<p>Systems must preserve the relationships between artifacts that define computational lineage.</p>
+<h3>Cross‑Agent Reuse</h3>
+<p>Artifacts must be accessible to independent agents participating in distributed workflows.</p>
+<h3>Verifiability</h3>
+<p>Artifacts must be verifiable to ensure retrieved artifacts correspond to their original computational outputs.</p>
+<p>Traditional storage models were not designed to satisfy these requirements simultaneously.</p>
+<hr>
+<h2>3. Filesystems</h2>
+<p>Filesystems represent one of the oldest abstractions for persistent storage.</p>
+<p>Files are identified by hierarchical paths and stored within a specific machine or mounted storage environment.</p>
+<p>While filesystems provide durable storage, they exhibit several limitations when applied to artifact graphs:</p>
+<ul>
+<li>file identity is location‑dependent</li>
+<li>derivation relationships between files are not explicitly represented</li>
+<li>file access is typically restricted to a specific system environment</li>
+</ul>
+<p>As a result, filesystems provide limited support for preserving artifact graphs across distributed computational systems.</p>
+<hr>
+<h2>4. Databases</h2>
+<p>Relational and document databases store structured application data.</p>
+<p>Databases support indexing, querying, and transactional integrity, making them effective for many application workloads.</p>
+<p>However, databases introduce constraints that conflict with artifact graph requirements:</p>
+<ul>
+<li>artifact identity becomes tied to database schema and application context</li>
+<li>cross‑system accessibility is limited</li>
+<li>artifact lineage relationships must be manually encoded within application logic</li>
+</ul>
+<p>Databases therefore provide persistence for application state rather than preservation of computational artifacts.</p>
+<hr>
+<h2>5. Cloud Object Storage</h2>
+<p>Cloud object storage systems provide highly durable storage for large volumes of data.</p>
+<p>Objects are typically addressed through location-based identifiers within centralized provider infrastructure.</p>
+<p>Although object storage improves durability, several limitations remain:</p>
+<ul>
+<li>object identity remains location‑dependent</li>
+<li>derivation relationships between objects are not preserved</li>
+<li>cross-agent coordination must be implemented externally</li>
+</ul>
+<p>Object storage therefore preserves data objects but not artifact graphs.</p>
+<hr>
+<h2>6. Version Control Systems</h2>
+<p>Version control systems such as Git provide content-addressable storage for software artifacts.</p>
+<p>These systems preserve revision history and support distributed collaboration.</p>
+<p>However, version control systems are optimized for source code management rather than computational artifact graphs.</p>
+<p>Limitations include:</p>
+<ul>
+<li>repository-centric identity</li>
+<li>limited representation of artifact derivation relationships</li>
+<li>workflows optimized for human collaboration rather than autonomous agents</li>
+</ul>
+<p>Version control systems therefore provide partial support for artifact identity but do not preserve artifact graphs across distributed computational workflows.</p>
+<hr>
+<h2>7. Vector Databases</h2>
+<p>Vector databases are frequently used in modern AI systems to store embeddings representing semantic representations of data.</p>
+<p>These systems enable similarity search across large embedding collections.</p>
+<p>While vector databases are often presented as infrastructure for AI systems, they exhibit significant limitations when evaluated against artifact graph requirements:</p>
+<ul>
+<li>embeddings represent derived representations rather than canonical artifacts</li>
+<li>artifact lineage is not preserved</li>
+<li>embedding identity does not correspond to computational artifact identity</li>
+<li>embeddings cannot reconstruct the original computational workflow</li>
+</ul>
+<p>Vector databases therefore support retrieval of semantic representations rather than preservation of computational artifacts.</p>
+<hr>
+<h2>8. Orchestration Systems</h2>
+<p>Orchestration systems coordinate the execution of computational processes — scheduling tasks, managing dependencies, and sequencing agent workflows. They are designed to manage execution, not preserve outputs.</p>
+<p>The artifacts produced within an orchestrated workflow require the same availability infrastructure as any other computational artifact.</p>
+<hr>
+<h2>9. Structural Mismatch</h2>
+<p>Traditional storage models share a common architectural assumption: they persist <strong>data objects</strong>, not <strong>computational artifacts within dependency graphs</strong>.</p>
+<p>Artifact graphs require systems that preserve:</p>
+<ul>
+<li>artifact identity</li>
+<li>derivation relationships</li>
+<li>cross-agent accessibility</li>
+<li>computational lineage</li>
+</ul>
+<p>Traditional storage systems preserve <strong>data persistence</strong>, but they do not preserve the <strong>structure of computational work</strong>.</p>
+<p>This mismatch explains why artifact graphs degrade in distributed agent ecosystems.</p>
+<hr>
+<h2>10. Implications</h2>
+<p>As autonomous computational systems continue to generate large volumes of artifacts, the inability of traditional storage systems to preserve artifact graphs becomes increasingly significant.</p>
+<p>Systems that fail to preserve artifact graphs effectively destroy portions of accumulated computational work.</p>
+<p>This observation reinforces the principle of Computational Work Conservation established in the previous note.</p>
+<p>Preserving artifact availability therefore becomes a necessary architectural property of distributed computational systems.</p>
+<hr>
+<h2>Conclusion</h2>
+<p>Traditional storage systems were designed to persist application data rather than preserve artifact graphs representing computational work.</p>
+<p>Filesystems, databases, object storage systems, version control systems, and vector databases each provide mechanisms for storing data. However, none of these systems were designed to preserve the structural relationships that define artifact graphs.</p>
+<p>As a result, the outputs of computational systems are routinely treated as temporary or disposable objects rather than as durable units of completed computational work.</p>
+<p>In distributed agent ecosystems, this assumption becomes increasingly problematic.</p>
+<p>As autonomous systems produce larger volumes of computational artifacts, the inability to preserve artifact graphs results in the repeated destruction of accumulated computational work.</p>
+<p>The analysis presented here suggests that preserving artifact availability cannot be treated as a secondary feature of existing storage systems.</p>
+<p>Instead, artifact availability must be treated as a <strong>first‑class architectural requirement</strong>.</p>
+<p>This observation motivates the need for a distinct infrastructure layer responsible for preserving artifact availability across distributed computational environments.</p>
+<p>The architecture of such a layer is explored in the next note in this series: <strong>The Artifact Availability Layer</strong>.</p>
+<hr>
+<h2>Discussion and Feedback</h2>
+<p>The ideas presented in this document are part of an ongoing exploration of architectural requirements for agent-based computational systems.</p>
+<p>Comments, critiques, and alternative perspectives are encouraged.</p>
+<p>Feedback may be submitted through issues or discussions within this repository.</p>
+<p>Future notes in this series introduce the Artifact Availability Layer, describe deterministic artifact identity, and establish the principle of Computational Work Conservation.</p>
+<hr>
+<h2>Citation</h2>
+<p>If referencing this work, please cite:</p>
+<p>Kopcho, Rich. <em>Why Storage Systems Lose Computational Work.</em><br>Agent Artifact Availability (AAA) Series. Technical Note, March 2026.</p>
+</div> <div class="paper-nav" data-astro-cid-sihaixxr> <a href="/framework/03-artifact-graphs/" data-astro-cid-sihaixxr>← Artifact Graphs and the Preservation of Computational Work</a> <a href="/framework/05-artifact-availability-layer/" class="next" data-astro-cid-sihaixxr>The Artifact Availability Layer →</a> </div> <div class="citation-block" data-astro-cid-sihaixxr> <h2 data-astro-cid-sihaixxr>Cite This Work</h2> <p class="citation-apa" data-astro-cid-sihaixxr>Kopcho, R. (2026). <em data-astro-cid-sihaixxr>Why Storage Systems Lose Computational Work</em>. Agent Artifact Availability (AAA) Framework, Technical Note 04. Cumulative Computing. <a href="https://cumulativecomputing.org/framework/04-why-storage-systems-fail/" data-astro-cid-sihaixxr>https://cumulativecomputing.org/framework/04-why-storage-systems-fail/</a></p> <details data-astro-cid-sihaixxr> <summary data-astro-cid-sihaixxr>BibTeX</summary> <div class="bibtex-wrapper" data-astro-cid-sihaixxr> <button class="copy-btn" onclick="copyBibtex(this)" data-astro-cid-sihaixxr>Copy</button> <pre data-astro-cid-sihaixxr><code data-astro-cid-sihaixxr>@techreport{kopcho2026aaa04,
+  author    = {Kopcho, Rich},
+  title     = {Why Storage Systems Lose Computational Work},
+  series    = {Agent Artifact Availability (AAA) Framework},
+  type      = {Technical Note},
+  number    = {04},
+  year      = {2026},
+  month     = {march},
+  url       = {https://cumulativecomputing.org/framework/04-why-storage-systems-fail/},
+  note      = {Source: https://github.com/kopcho/AAA},
+  license   = {CC BY 4.0}
+}</code></pre> </div> </details> <p class="citation-more" data-astro-cid-sihaixxr><a href="/cite/" data-astro-cid-sihaixxr>All citation formats →</a></p> </div>    </main> <footer> <p>© 2026 Rich Kopcho · <a href="https://github.com/kopcho/AAA">github.com/kopcho/AAA</a> · CC BY 4.0</p> <p style="margin-top:0.5rem;">Investor inquiries: <a href="mailto:rich@cumulativecomputing.org">rich@cumulativecomputing.org</a></p> </footer> </body></html>

@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Cumulative Computing",
+  "name_for_model": "cumulative_computing",
+  "description_for_human": "The Cumulative Computing paradigm and Agent Artifact Availability (AAA) Framework by Rich Kopcho.",
+  "description_for_model": "Cumulative Computing is a computational paradigm developed by Rich Kopcho in which systems accumulate work over time by preserving artifacts that represent completed computation, rather than repeatedly destroying and recreating it. The Agent Artifact Availability (AAA) Framework defines the reliability property required for cumulative computing systems. Seven technical notes are available covering: (1) Agent Artifact Availability as a reliability property, (2) Artifacts as units of computational work, (3) Artifact graphs and preservation of computational work, (4) Why storage systems lose computational work, (5) The Artifact Availability Layer infrastructure, (6) Deterministic artifact identity, (7) Computational Work Conservation. Author: Rich Kopcho (github.com/kopcho). Source: github.com/kopcho/AAA. License: CC BY 4.0.",
+  "auth": {
+    "type": "none"
+  },
+  "logo_url": "https://cumulativecomputing.org/favicon.svg",
+  "legal_info_url": "https://creativecommons.org/licenses/by/4.0/"
+}

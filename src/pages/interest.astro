@@ -133,9 +133,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       btn.textContent = 'Sending...';
       error.style.display = 'none';
 
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const res = await fetch('/api/interest', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
         body: new FormData(form),
       });
 
