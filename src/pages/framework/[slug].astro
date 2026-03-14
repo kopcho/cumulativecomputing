@@ -163,7 +163,9 @@ const jsonld = JSON.stringify([
     <p class="citation-apa">Kopcho, R. (2026). <em>{paper.title}</em>. Agent Artifact Availability (AAA) Framework, Technical Note {paper.num}. Cumulative Computing. <a href={`https://cumulativecomputing.org/framework/${paper.slug}/`}>https://cumulativecomputing.org/framework/{paper.slug}/</a></p>
     <details>
       <summary>BibTeX</summary>
-      <pre><code>{`@techreport{${bibtexKey},
+      <div class="bibtex-wrapper">
+        <button class="copy-btn" onclick="copyBibtex(this)">Copy</button>
+        <pre><code>{`@techreport{${bibtexKey},
   author    = {Kopcho, Rich},
   title     = {${paper.title}},
   series    = {Agent Artifact Availability (AAA) Framework},
@@ -175,6 +177,7 @@ const jsonld = JSON.stringify([
   note      = {Source: https://github.com/kopcho/AAA},
   license   = {CC BY 4.0}
 }`}</code></pre>
+      </div>
     </details>
     <p class="citation-more"><a href="/cite/">All citation formats →</a></p>
   </div>
@@ -221,5 +224,39 @@ const jsonld = JSON.stringify([
     font-size: 0.78rem;
     margin: 0.75rem 0 0;
   }
+  .bibtex-wrapper {
+    position: relative;
+  }
+  .copy-btn {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.25rem 0.6rem;
+    background: var(--bg);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent-high); }
+  .copy-btn.copied { color: #6fcf97; border-color: #6fcf97; }
 </style>
+
+<script>
+  function copyBibtex(btn: HTMLButtonElement) {
+    const code = btn.closest('.bibtex-wrapper')?.querySelector('code');
+    if (!code) return;
+    navigator.clipboard.writeText(code.innerText).then(() => {
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+</script>
 </BaseLayout>

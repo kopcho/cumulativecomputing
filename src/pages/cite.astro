@@ -77,6 +77,23 @@ const jsonld = JSON.stringify({
     details summary { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); cursor: pointer; margin: 0.75rem 0 0.5rem; }
     details summary:hover { color: var(--accent-high); }
     .plain-text { font-family: var(--font-mono); font-size: 0.82rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 1rem 1.25rem; line-height: 1.7; }
+    .bibtex-wrapper { position: relative; }
+    .copy-btn {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      padding: 0.25rem 0.6rem;
+      background: var(--bg);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent-high); }
+    .copy-btn.copied { color: #6fcf97; border-color: #6fcf97; }
   </style>
 
   <h1>Cite This Work</h1>
@@ -90,7 +107,10 @@ const jsonld = JSON.stringify({
     <h3>APA</h3>
     <div class="apa-block">Kopcho, R. (2026). <em>Agent Artifact Availability (AAA) Framework</em> [Technical note series]. Cumulative Computing. https://cumulativecomputing.org/framework/</div>
     <h3>BibTeX</h3>
-    <pre>{seriesBibtex}</pre>
+    <div class="bibtex-wrapper">
+      <button class="copy-btn" onclick="copyBibtex(this)">Copy</button>
+      <pre>{seriesBibtex}</pre>
+    </div>
     <h3>Plain text</h3>
     <div class="plain-text">Rich Kopcho. "Agent Artifact Availability (AAA) Framework." Technical Note Series. Cumulative Computing, March 2026. https://cumulativecomputing.org/framework/ — Source: https://github.com/kopcho/AAA — CC BY 4.0</div>
   </div>
@@ -103,7 +123,9 @@ const jsonld = JSON.stringify({
         <div class="apa-block">Kopcho, R. (2026). <em>{p.title}</em>. Agent Artifact Availability (AAA) Framework, Technical Note {p.num}. Cumulative Computing. https://cumulativecomputing.org/framework/{p.slug}/</div>
         <details>
           <summary>BibTeX</summary>
-          <pre>{`@techreport{${p.key},
+          <div class="bibtex-wrapper">
+            <button class="copy-btn" onclick="copyBibtex(this)">Copy</button>
+            <pre>{`@techreport{${p.key},
   author    = {Kopcho, Rich},
   title     = {${p.title}},
   series    = {Agent Artifact Availability (AAA) Framework},
@@ -115,9 +137,25 @@ const jsonld = JSON.stringify({
   note      = {Source: https://github.com/kopcho/AAA},
   license   = {CC BY 4.0}
 }`}</pre>
+          </div>
         </details>
       </div>
     ))}
   </div>
+
+  <script>
+    function copyBibtex(btn: HTMLButtonElement) {
+      const pre = btn.closest('.bibtex-wrapper')?.querySelector('pre');
+      if (!pre) return;
+      navigator.clipboard.writeText(pre.innerText).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
 
 </BaseLayout>
