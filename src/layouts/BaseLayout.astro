@@ -46,26 +46,26 @@ const canonicalUrl = Astro.url.href;
   <link rel="license" href="https://creativecommons.org/licenses/by/4.0/" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   {jsonld && <script type="application/ld+json" set:html={jsonld} />}
   <style is:global>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0d1024;
-      --bg2: #111830;
-      --text: #e8ecff;
-      --text-muted: #8896cc;
-      --accent: #6b87f8;
-      --accent-high: #a0b0ff;
-      --border: #1e2a4a;
-      --font-body: 'IBM Plex Serif', Georgia, serif;
+      --bg: #fafaf8;
+      --bg2: #f0efe9;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --accent: #2a4db5;
+      --accent-high: #1a3a9e;
+      --border: #ddddd8;
+      --font-body: Georgia, 'Times New Roman', serif;
       --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
     }
     html { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 18px; line-height: 1.7; }
     body { min-height: 100vh; display: flex; flex-direction: column; }
-    a { color: var(--accent-high); text-decoration: underline; text-underline-offset: 3px; }
-    a:hover { color: white; }
+    a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--accent-high); }
     nav {
       border-bottom: 1px solid var(--border);
       padding: 1rem 2rem;
@@ -76,8 +76,8 @@ const canonicalUrl = Astro.url.href;
       font-size: 0.875rem;
     }
     nav a { text-decoration: none; }
-    nav .site-name { color: var(--accent-high); font-weight: 500; letter-spacing: 0.02em; }
-    nav .site-name:hover { color: white; }
+    nav .site-name { color: var(--text); font-weight: 500; letter-spacing: 0.02em; }
+    nav .site-name:hover { color: var(--accent); }
     nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     nav .nav-links a { color: var(--text-muted); }
     nav .nav-links a:hover { color: var(--text); }
@@ -85,27 +85,27 @@ const canonicalUrl = Astro.url.href;
     footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
     footer a { color: var(--text-muted); }
     footer a:hover { color: var(--text); }
-    h1 { font-size: 2rem; font-weight: 600; line-height: 1.2; margin-bottom: 1rem; color: white; letter-spacing: -0.02em; }
-    h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 0.75rem; color: white; }
-    h3 { font-size: 1.1rem; font-weight: 500; margin: 2rem 0 0.5rem; color: var(--accent-high); }
+    h1 { font-size: 2rem; font-weight: bold; line-height: 1.2; margin-bottom: 1rem; color: var(--text); letter-spacing: -0.02em; }
+    h2 { font-size: 1.4rem; font-weight: bold; margin: 2.5rem 0 0.75rem; color: var(--text); }
+    h3 { font-size: 1.1rem; font-weight: bold; margin: 2rem 0 0.5rem; color: var(--text); }
     p { margin-bottom: 1.25rem; }
     ul, ol { margin: 0 0 1.25rem 1.5rem; }
     li { margin-bottom: 0.4rem; }
     blockquote { border-left: 3px solid var(--accent); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: var(--bg2); border-radius: 0 4px 4px 0; font-style: italic; color: var(--text-muted); }
-    code { font-family: var(--font-mono); font-size: 0.85em; background: var(--bg2); padding: 0.15em 0.4em; border-radius: 3px; color: var(--accent-high); }
+    code { font-family: var(--font-mono); font-size: 0.85em; background: var(--bg2); padding: 0.15em 0.4em; border-radius: 3px; color: var(--text); }
     pre { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem; overflow-x: auto; margin: 1.5rem 0; }
     pre code { background: none; padding: 0; color: var(--text); }
     hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
     table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.9rem; }
     th, td { border: 1px solid var(--border); padding: 0.6rem 0.875rem; text-align: left; }
-    th { background: var(--bg2); color: var(--accent-high); font-family: var(--font-mono); font-weight: 500; }
-    strong { color: white; font-weight: 600; }
+    th { background: var(--bg2); color: var(--text); font-family: var(--font-mono); font-weight: 500; }
+    strong { color: var(--text); font-weight: bold; }
     .byline { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
     .byline a { color: var(--text-muted); text-decoration: none; }
-    .byline a:hover { color: var(--accent-high); }
+    .byline a:hover { color: var(--accent); }
     .paper-nav { display: flex; justify-content: space-between; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 0.8rem; gap: 1rem; }
     .paper-nav a { color: var(--text-muted); text-decoration: none; max-width: 45%; }
-    .paper-nav a:hover { color: var(--accent-high); }
+    .paper-nav a:hover { color: var(--accent); }
     .paper-nav .next { text-align: right; margin-left: auto; }
     @media (max-width: 600px) { main { padding: 2rem 1.25rem 4rem; } nav { padding: 0.875rem 1.25rem; } h1 { font-size: 1.5rem; } }
   </style>
