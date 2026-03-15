@@ -166,7 +166,7 @@ const jsonld = JSON.stringify([
     <span>March 2026</span>
     <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">View on GitHub ↗</a>
     <span>CC BY 4.0</span>
-    <button class="print-btn" data-slug={paper.slug} onclick="printPaper(this)">Save as PDF</button>
+    <button class="print-btn" data-slug={paper.slug}>Save as PDF</button>
   </div>
   <div class="paper-content" set:html={html} />
   <div class="paper-nav">
@@ -275,13 +275,14 @@ const jsonld = JSON.stringify([
 </style>
 
 <script>
-  function printPaper(btn: HTMLButtonElement) {
+  document.querySelector('.print-btn')?.addEventListener('click', (e) => {
+    const btn = e.currentTarget as HTMLButtonElement;
     const slug = btn.dataset.slug;
     const original = document.title;
     document.title = slug || original;
     window.print();
     document.title = original;
-  }
+  });
 
   function copyBibtex(btn: HTMLButtonElement) {
     const code = btn.closest('.bibtex-wrapper')?.querySelector('code');
