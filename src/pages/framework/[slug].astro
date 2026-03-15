@@ -166,6 +166,7 @@ const jsonld = JSON.stringify([
     <span>March 2026</span>
     <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">View on GitHub ↗</a>
     <span>CC BY 4.0</span>
+    <button class="print-btn" onclick="window.print()">Save as PDF</button>
   </div>
   <div class="paper-content" set:html={html} />
   <div class="paper-nav">
@@ -258,6 +259,19 @@ const jsonld = JSON.stringify([
   }
   .copy-btn:hover { border-color: var(--accent); color: var(--accent-high); }
   .copy-btn.copied { color: #6fcf97; border-color: #6fcf97; }
+  .print-btn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin-left: auto;
+  }
+  .print-btn:hover { border-color: var(--accent); color: var(--accent); }
 </style>
 
 <script>
