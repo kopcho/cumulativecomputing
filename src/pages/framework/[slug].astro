@@ -180,7 +180,7 @@ const jsonld = JSON.stringify([
     <details>
       <summary>BibTeX</summary>
       <div class="bibtex-wrapper">
-        <button class="copy-btn" onclick="copyBibtex(this)">Copy</button>
+        <button class="copy-btn">Copy</button>
         <pre><code>{`@techreport{${bibtexKey},
   author    = {Kopcho, Rich},
   title     = {${paper.title}},
@@ -284,7 +284,8 @@ const jsonld = JSON.stringify([
     document.title = original;
   });
 
-  function copyBibtex(btn: HTMLButtonElement) {
+  document.querySelector('.copy-btn')?.addEventListener('click', (e) => {
+    const btn = e.currentTarget as HTMLButtonElement;
     const code = btn.closest('.bibtex-wrapper')?.querySelector('code');
     if (!code) return;
     navigator.clipboard.writeText(code.innerText).then(() => {
@@ -295,6 +296,6 @@ const jsonld = JSON.stringify([
         btn.classList.remove('copied');
       }, 2000);
     });
-  }
+  });
 </script>
 </BaseLayout>
