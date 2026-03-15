@@ -29,6 +29,9 @@ const canonicalUrl = Astro.url.href;
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:type" content={isCitation ? 'article' : 'website'} />
   <meta property="og:site_name" content="Cumulative Computing" />
+  <meta property="og:image" content="https://cumulativecomputing.org/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   {isCitation && <meta property="article:author" content="https://github.com/kopcho" />}
   {isCitation && <meta property="article:published_time" content="2026-03-01" />}
 
