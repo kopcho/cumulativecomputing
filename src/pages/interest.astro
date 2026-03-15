@@ -187,7 +187,7 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAACqyAEB1uAyJKVjS';
       } else {
         btn.disabled = false;
         btn.textContent = 'Send';
-        error.textContent = `Error: ${data.error || res.status}`;
+        error.innerHTML = `Something went wrong. Try emailing <a href="mailto:hello@cumulativecomputing.org">hello@cumulativecomputing.org</a> directly.`;
         error.style.display = 'block';
       }
     });
