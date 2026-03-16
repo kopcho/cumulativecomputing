@@ -85,6 +85,11 @@ const canonicalUrl = Astro.url.href;
     nav .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     nav .nav-links a { color: var(--text-muted); }
     nav .nav-links a:hover { color: var(--text); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 0.25rem; color: var(--text); }
+    .hamburger span { display: block; width: 22px; height: 2px; background: currentColor; margin: 5px 0; transition: all 0.2s; }
+    .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     main { flex: 1; max-width: 760px; margin: 0 auto; padding: 3rem 2rem 6rem; width: 100%; }
     footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted); }
     footer a { color: var(--text-muted); }
@@ -111,7 +116,26 @@ const canonicalUrl = Astro.url.href;
     .paper-nav a { color: var(--text-muted); text-decoration: none; max-width: 45%; }
     .paper-nav a:hover { color: var(--accent); }
     .paper-nav .next { text-align: right; margin-left: auto; }
-    @media (max-width: 600px) { main { padding: 2rem 1.25rem 4rem; } nav { padding: 0.875rem 1.25rem; } h1 { font-size: 1.5rem; } }
+    @media (max-width: 640px) {
+      html { font-size: 16px; }
+      nav { padding: 0.75rem 1rem; flex-wrap: wrap; }
+      .hamburger { display: block; }
+      nav .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0.75rem 0 0.25rem;
+      }
+      nav .nav-links.open { display: flex; }
+      main { padding: 1.5rem 1rem 4rem; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.25rem; }
+      table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .byline { gap: 0.75rem; }
+      .paper-nav { flex-direction: column; gap: 0.75rem; }
+      .paper-nav .next { text-align: left; margin-left: 0; }
+    }
     @media print {
       nav, footer, .paper-nav, .print-btn, .copy-btn { display: none !important; }
       body { background: #fff; color: #000; }
@@ -129,13 +153,24 @@ const canonicalUrl = Astro.url.href;
 <body>
   <nav>
     <a href="/" class="site-name">Cumulative Computing</a>
-    <div class="nav-links">
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="/framework/">Framework</a>
       <a href="/cite/">Cite</a>
       <a href="/interest/">Get Involved</a>
       <a href="https://github.com/kopcho/AAA" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </nav>
+  <script>
+    const btn = document.querySelector('.hamburger');
+    const links = document.getElementById('nav-links');
+    btn?.addEventListener('click', () => {
+      const open = links?.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  </script>
   <main>
     <slot />
   </main>
