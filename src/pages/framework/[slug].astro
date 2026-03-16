@@ -170,8 +170,8 @@ const jsonld = JSON.stringify([
   </div>
   <div class="paper-content" set:html={html} />
   <div class="paper-nav">
-    {prev && <a href={`/framework/${prev.slug}/`}>← {prev.title}</a>}
-    {next && <a href={`/framework/${next.slug}/`} class="next">{next.title} →</a>}
+    {prev && <a href={`/framework/${prev.slug}/`}><span class="nav-label">← Previous</span><span class="nav-title">{prev.title}</span></a>}
+    {next && <a href={`/framework/${next.slug}/`} class="next"><span class="nav-label">Next →</span><span class="nav-title">{next.title}</span></a>}
   </div>
 
   <div class="citation-block">
