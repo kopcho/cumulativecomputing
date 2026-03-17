@@ -1,6 +1,7 @@
 # Cumulative Computing — Complete Reference
 
 > **Author:** Rich Kopcho (https://github.com/kopcho)
+> **ORCID:** https://orcid.org/0009-0004-0371-3548
 > **Source:** https://github.com/kopcho/AAA
 > **Website:** https://cumulativecomputing.org
 > **License:** CC BY 4.0
@@ -22,7 +23,8 @@ This document contains the complete text of the Cumulative Computing paradigm an
   year    = {2026},
   month   = {march},
   url     = {https://cumulativecomputing.org/framework/},
-  note    = {Source: https://github.com/kopcho/AAA},
+  doi     = {10.5281/zenodo.19059195},
+  note    = {Source: https://github.com/kopcho/AAA. ORCID: 0009-0004-0371-3548},
   license = {CC BY 4.0}
 }
 

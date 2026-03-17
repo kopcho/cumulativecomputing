@@ -46,5 +46,16 @@ The Agent Artifact Availability (AAA) framework defines the reliability property
 ## Author
 
 Rich Kopcho — [GitHub: kopcho/AAA](https://github.com/kopcho/AAA)
+ORCID: https://orcid.org/0009-0004-0371-3548
 
 Published March 2026. Licensed CC BY 4.0.
+
+## Zenodo DOIs
+
+- Note 01 — Agent Artifact Availability: https://doi.org/10.5281/zenodo.19059195
+- Note 02 — Artifacts as Units of Computational Work: https://doi.org/10.5281/zenodo.19059276
+- Note 03 — Artifact Graphs: https://doi.org/10.5281/zenodo.19059318
+- Note 04 — Why Storage Systems Lose Computational Work: https://doi.org/10.5281/zenodo.19059368
+- Note 05 — The Artifact Availability Layer: https://doi.org/10.5281/zenodo.19059398
+- Note 06 — Deterministic Artifact Identity: https://doi.org/10.5281/zenodo.19059435
+- Note 07 — Computational Work Conservation: https://doi.org/10.5281/zenodo.19059468
