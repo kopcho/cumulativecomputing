@@ -2,13 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const PAPERS = [
-  { slug: '01-agent-artifact-availability', num: '01', title: 'Agent Artifact Availability (AAA)', key: 'kopcho2026aaa01' },
-  { slug: '02-artifacts-as-units-of-work', num: '02', title: 'Artifacts as Units of Computational Work', key: 'kopcho2026aaa02' },
-  { slug: '03-artifact-graphs', num: '03', title: 'Artifact Graphs and the Preservation of Computational Work', key: 'kopcho2026aaa03' },
-  { slug: '04-why-storage-systems-fail', num: '04', title: 'Why Storage Systems Lose Computational Work', key: 'kopcho2026aaa04' },
-  { slug: '05-artifact-availability-layer', num: '05', title: 'The Artifact Availability Layer', key: 'kopcho2026aaa05' },
-  { slug: '06-deterministic-artifact-identity', num: '06', title: 'Deterministic Artifact Identity', key: 'kopcho2026aaa06' },
-  { slug: '07-computational-work-conservation', num: '07', title: 'Computational Work Conservation', key: 'kopcho2026aaa07' },
+  { slug: '01-agent-artifact-availability', num: '01', title: 'Agent Artifact Availability (AAA)', key: 'kopcho2026aaa01', doi: '10.5281/zenodo.19059195' },
+  { slug: '02-artifacts-as-units-of-work', num: '02', title: 'Artifacts as Units of Computational Work', key: 'kopcho2026aaa02', doi: '10.5281/zenodo.19059276' },
+  { slug: '03-artifact-graphs', num: '03', title: 'Artifact Graphs and the Preservation of Computational Work', key: 'kopcho2026aaa03', doi: '10.5281/zenodo.19059318' },
+  { slug: '04-why-storage-systems-fail', num: '04', title: 'Why Storage Systems Lose Computational Work', key: 'kopcho2026aaa04', doi: '10.5281/zenodo.19059368' },
+  { slug: '05-artifact-availability-layer', num: '05', title: 'The Artifact Availability Layer', key: 'kopcho2026aaa05', doi: '10.5281/zenodo.19059398' },
+  { slug: '06-deterministic-artifact-identity', num: '06', title: 'Deterministic Artifact Identity', key: 'kopcho2026aaa06', doi: '10.5281/zenodo.19059435' },
+  { slug: '07-computational-work-conservation', num: '07', title: 'Computational Work Conservation', key: 'kopcho2026aaa07', doi: '10.5281/zenodo.19059468' },
 ];
 
 const seriesBibtex = `@techreport{kopcho2026aaa,
@@ -18,6 +18,8 @@ const seriesBibtex = `@techreport{kopcho2026aaa,
   year      = {2026},
   month     = {march},
   url       = {https://cumulativecomputing.org/framework/},
+  doi       = {10.5281/zenodo.19059195},
+  orcid     = {0009-0004-0371-3548},
   note      = {Seven-part technical note series. Source: https://github.com/kopcho/AAA},
   license   = {CC BY 4.0}
 }`;
@@ -26,9 +28,23 @@ const jsonld = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "CreativeWorkSeries",
   "name": "Agent Artifact Availability (AAA) Framework",
-  "author": { "@type": "Person", "name": "Rich Kopcho", "url": "https://github.com/kopcho" },
+  "author": {
+    "@type": "Person",
+    "name": "Rich Kopcho",
+    "url": "https://github.com/kopcho",
+    "sameAs": ["https://orcid.org/0009-0004-0371-3548"]
+  },
   "url": "https://cumulativecomputing.org/framework/",
-  "sameAs": ["https://github.com/kopcho/AAA"],
+  "sameAs": [
+    "https://github.com/kopcho/AAA",
+    "https://doi.org/10.5281/zenodo.19059195",
+    "https://doi.org/10.5281/zenodo.19059276",
+    "https://doi.org/10.5281/zenodo.19059318",
+    "https://doi.org/10.5281/zenodo.19059368",
+    "https://doi.org/10.5281/zenodo.19059398",
+    "https://doi.org/10.5281/zenodo.19059435",
+    "https://doi.org/10.5281/zenodo.19059468"
+  ],
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "datePublished": "2026-03"
 });
@@ -120,7 +136,7 @@ const jsonld = JSON.stringify({
     {PAPERS.map(p => (
       <div class="paper-cite">
         <h3>{p.num}. <a href={`/framework/${p.slug}/`}>{p.title}</a></h3>
-        <div class="apa-block">Kopcho, R. (2026). <em>{p.title}</em>. Agent Artifact Availability (AAA) Framework, Technical Note {p.num}. Cumulative Computing. https://cumulativecomputing.org/framework/{p.slug}/</div>
+        <div class="apa-block">Kopcho, R. (2026). <em>{p.title}</em>. Agent Artifact Availability (AAA) Framework, Technical Note {p.num}. Cumulative Computing. https://doi.org/{p.doi}</div>
         <details>
           <summary>BibTeX</summary>
           <div class="bibtex-wrapper">
@@ -134,6 +150,8 @@ const jsonld = JSON.stringify({
   year      = {2026},
   month     = {march},
   url       = {https://cumulativecomputing.org/framework/${p.slug}/},
+  doi       = {${p.doi}},
+  orcid     = {0009-0004-0371-3548},
   note      = {Source: https://github.com/kopcho/AAA},
   license   = {CC BY 4.0}
 }`}</pre>
